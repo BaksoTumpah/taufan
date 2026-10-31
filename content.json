@@ -3,7 +3,7 @@
   "role": "Developer",
   "badge": "INTERMEDIATE",
   "org": "SMA N 1 Negara",
-  "major": "PEMULA",
+  "major": "HIDUP SMANSAA",
   "motto": "Don’t repeat yourself",
   "qr": "https://www.instagram.com/tauf.fadill?mdxt=Y3R1OWQ3N21mNWk3",
   "title": "Welcome to My Website",
@@ -14,31 +14,31 @@
   ],
   "intro": "Halo! Saya seorang Web Developer Pemula yang saat ini sedang menempuh pendidikan di SMA. Saya memiliki ketertarikan besar dalam dunia coding dan selalu bersemangat untuk mempelajari teknologi baru demi membangun web yang interaktif.",
   "bio": "Saya seorang developer yang fokus pada pembuatan website fungsional sekaligus menarik secara visual. Sebagai siswa SMA, saya aktif mengasah keterampilan programming saya lewat berbagai proyek web. Mari terhubung dan berkolaborasi!",
-  "photo": "",
-  "photoAlt": "",
+  "photo": "assets/1793457331422-1000220862.png",
+  "photoAlt": "assets/1793457335776-1000220861.png",
   "brand": "Taufan Fadila H",
   "flipEvery": 8,
   "education": [
     {
-      "logo": "",
+      "logo": "assets/1793457362172-1000220833.png",
       "name": "TK TUNAS HARAPAN",
       "detail": "Tegal Badeng Timur",
       "period": "2015-2016"
     },
     {
-      "logo": "",
+      "logo": "assets/1793457367432-1000220833.png",
       "name": "SD N 1 TEGAL BADENG TIMUR",
       "detail": "Tegal Badeng Timur",
       "period": "2016-2022"
     },
     {
-      "logo": "",
+      "logo": "assets/1793457373682-1000220837.png",
       "name": "SMP N 1 NEGARA",
       "detail": "Jembrana",
       "period": "2022-2025"
     },
     {
-      "logo": "",
+      "logo": "assets/1793457378353-1000219603.jpg",
       "name": "SMA N 1 NEGARA",
       "detail": "Jembrana",
       "period": "2026/2027"
@@ -46,23 +46,17 @@
   ],
   "experience": [],
   "links": {
-    "instagram": "",
-    "tiktok": "",
-    "github": "",
-    "whatsapp": "",
-    "email": ""
+    "instagram": "@tauf.fadill",
+    "tiktok": "@felischauss",
+    "github": "BaksoTumpah",
+    "whatsapp": "085808703830",
+    "email": "fadilataufan32@gmail.com"
   },
   "tracks": [
     {
-      "title": "Judul Lagu 1",
-      "artist": "Artis",
-      "cover": "",
-      "src": ""
-    },
-    {
-      "title": "Judul Lagu 2",
-      "artist": "Artis",
-      "cover": "",
+      "title": "Iloveyou Gwen",
+      "artist": "Fadil",
+      "cover": "assets/1793457448320-1000220858.jpg",
       "src": ""
     }
   ],
@@ -70,7 +64,7 @@
     {
       "title": "Website Pengelola Kas Kelas",
       "desc": "Website untuk memudahkan bendahara mencatat pengeluaran dan pemasukan.\nhttps://kaskelas.web.app/",
-      "img": "",
+      "img": "assets/1793457488713-1000217935.jpg",
       "tech": [
         "Python",
         "HTML",
@@ -82,28 +76,26 @@
   "certificates": [],
   "achievements": [
     {
-      "title": "Prestasi Contoh",
+      "title": "Prestasi Pidato Bahasa Arab",
       "desc": "Juara dan tingkat lomba.",
-      "img": "",
+      "img": "assets/1793457517887-1000219673.jpg",
       "tech": []
     }
   ],
   "stack": [
-    "React",
     "JavaScript",
     "HTML",
     "CSS",
     "Python",
-    "PHP",
-    "MySQL",
     "Firebase",
+    "Cloudflare",
     "Git",
     "GitHub"
   ],
   "gallery": [
     {
       "title": "Liburan Lebaran",
-      "desc": "",
+      "desc": "liburan ke tumpak selo",
       "img": "assets/1793456510877-1000000154.jpg"
     }
   ]
