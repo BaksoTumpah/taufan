@@ -1,39 +1,50 @@
 {
   "name": "Fadil",
   "role": "Developer",
-  "badge": "JUNIOR",
+  "badge": "INTERMEDIATE",
   "org": "SMA N 1 Negara",
-  "major": "IPA",
+  "major": "PEMULA",
   "motto": "Don’t repeat yourself",
-  "qr": "",
-  "title": "Welcome to My Portfolio",
+  "qr": "https://www.instagram.com/tauf.fadill?mdxt=Y3R1OWQ3N21mNWk3",
+  "title": "Welcome to My Website",
   "taglines": [
     "Web Dev",
-    "3D Creative Developer",
-    "React & Three.js Enthusiast"
+    "Pemula",
+    "Aku Esema"
   ],
-  "intro": "Ceritakan dirimu: apa yang suka kamu bangun, teknologi yang dipakai, dan apa yang membuatmu bersemangat.",
-  "bio": "Saya seorang developer yang fokus pada teknologi yang fungsional sekaligus menarik.\nUbah teks ini lewat halaman /developer/.",
+  "intro": "Halo! Saya seorang Web Developer Pemula yang saat ini sedang menempuh pendidikan di SMA. Saya memiliki ketertarikan besar dalam dunia coding dan selalu bersemangat untuk mempelajari teknologi baru demi membangun web yang interaktif.",
+  "bio": "Saya seorang developer yang fokus pada pembuatan website fungsional sekaligus menarik secara visual. Sebagai siswa SMA, saya aktif mengasah keterampilan programming saya lewat berbagai proyek web. Mari terhubung dan berkolaborasi!",
   "photo": "",
   "photoAlt": "",
-  "brand": "NamaKamu.",
+  "brand": "Taufan Fadila H",
   "flipEvery": 8,
   "education": [
     {
       "logo": "",
-      "name": "Nama Sekolah Kamu",
-      "detail": "Jurusan atau program studi",
-      "period": "2024 – 2027"
-    }
-  ],
-  "experience": [
+      "name": "TK TUNAS HARAPAN",
+      "detail": "Tegal Badeng Timur",
+      "period": "2015-2016"
+    },
     {
       "logo": "",
-      "name": "Organisasi atau Tempat Kerja",
-      "detail": "Peran kamu",
-      "period": "2025 – sekarang"
+      "name": "SD N 1 TEGAL BADENG TIMUR",
+      "detail": "Tegal Badeng Timur",
+      "period": "2016-2022"
+    },
+    {
+      "logo": "",
+      "name": "SMP N 1 NEGARA",
+      "detail": "Jembrana",
+      "period": "2022-2025"
+    },
+    {
+      "logo": "",
+      "name": "SMA N 1 NEGARA",
+      "detail": "Jembrana",
+      "period": "2026/2027"
     }
   ],
+  "experience": [],
   "links": {
     "instagram": "",
     "tiktok": "",
@@ -57,8 +68,8 @@
   ],
   "projects": [
     {
-      "title": "Projek Pertama",
-      "desc": "Deskripsi singkat projek. Ganti lewat /developer/.",
+      "title": "Website Pengelola Kas Kelas",
+      "desc": "Website untuk memudahkan bendahara mencatat pengeluaran dan pemasukan.\nhttps://kaskelas.web.app/",
       "img": "",
       "tech": [
         "Python",
@@ -66,34 +77,9 @@
         "CSS",
         "JavaScript"
       ]
-    },
-    {
-      "title": "Projek Kedua",
-      "desc": "Tambahkan screenshot dan teknologi yang dipakai.",
-      "img": "",
-      "tech": [
-        "PHP",
-        "MySQL"
-      ]
-    },
-    {
-      "title": "Projek Ketiga",
-      "desc": "Dashboard atau aplikasi lain yang pernah kamu buat.",
-      "img": "",
-      "tech": [
-        "React",
-        "Firebase"
-      ]
     }
   ],
-  "certificates": [
-    {
-      "title": "Sertifikat Contoh",
-      "desc": "Penyelenggara dan tahun.",
-      "img": "",
-      "tech": []
-    }
-  ],
+  "certificates": [],
   "achievements": [
     {
       "title": "Prestasi Contoh",
@@ -116,19 +102,9 @@
   ],
   "gallery": [
     {
-      "title": "Momen keluarga 1",
+      "title": "Liburan Lebaran",
       "desc": "",
-      "img": ""
-    },
-    {
-      "title": "Momen keluarga 2",
-      "desc": "",
-      "img": ""
-    },
-    {
-      "title": "Momen keluarga 3",
-      "desc": "",
-      "img": ""
+      "img": "assets/1793456510877-1000000154.jpg"
     }
   ]
 }
