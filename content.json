@@ -1,0 +1,134 @@
+{
+  "name": "Fadil",
+  "role": "Developer",
+  "badge": "JUNIOR",
+  "org": "SMA N 1 Negara",
+  "major": "IPA",
+  "motto": "Don’t repeat yourself",
+  "qr": "",
+  "title": "Welcome to My Portfolio",
+  "taglines": [
+    "Web Dev",
+    "3D Creative Developer",
+    "React & Three.js Enthusiast"
+  ],
+  "intro": "Ceritakan dirimu: apa yang suka kamu bangun, teknologi yang dipakai, dan apa yang membuatmu bersemangat.",
+  "bio": "Saya seorang developer yang fokus pada teknologi yang fungsional sekaligus menarik.\nUbah teks ini lewat halaman /developer/.",
+  "photo": "",
+  "photoAlt": "",
+  "brand": "NamaKamu.",
+  "flipEvery": 8,
+  "education": [
+    {
+      "logo": "",
+      "name": "Nama Sekolah Kamu",
+      "detail": "Jurusan atau program studi",
+      "period": "2024 – 2027"
+    }
+  ],
+  "experience": [
+    {
+      "logo": "",
+      "name": "Organisasi atau Tempat Kerja",
+      "detail": "Peran kamu",
+      "period": "2025 – sekarang"
+    }
+  ],
+  "links": {
+    "instagram": "",
+    "tiktok": "",
+    "github": "",
+    "whatsapp": "",
+    "email": ""
+  },
+  "tracks": [
+    {
+      "title": "Judul Lagu 1",
+      "artist": "Artis",
+      "cover": "",
+      "src": ""
+    },
+    {
+      "title": "Judul Lagu 2",
+      "artist": "Artis",
+      "cover": "",
+      "src": ""
+    }
+  ],
+  "projects": [
+    {
+      "title": "Projek Pertama",
+      "desc": "Deskripsi singkat projek. Ganti lewat /developer/.",
+      "img": "",
+      "tech": [
+        "Python",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "title": "Projek Kedua",
+      "desc": "Tambahkan screenshot dan teknologi yang dipakai.",
+      "img": "",
+      "tech": [
+        "PHP",
+        "MySQL"
+      ]
+    },
+    {
+      "title": "Projek Ketiga",
+      "desc": "Dashboard atau aplikasi lain yang pernah kamu buat.",
+      "img": "",
+      "tech": [
+        "React",
+        "Firebase"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Sertifikat Contoh",
+      "desc": "Penyelenggara dan tahun.",
+      "img": "",
+      "tech": []
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Prestasi Contoh",
+      "desc": "Juara dan tingkat lomba.",
+      "img": "",
+      "tech": []
+    }
+  ],
+  "stack": [
+    "React",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Python",
+    "PHP",
+    "MySQL",
+    "Firebase",
+    "Git",
+    "GitHub"
+  ],
+  "gallery": [
+    {
+      "title": "Momen keluarga 1",
+      "desc": "",
+      "img": ""
+    },
+    {
+      "title": "Momen keluarga 2",
+      "desc": "",
+      "img": ""
+    },
+    {
+      "title": "Momen keluarga 3",
+      "desc": "",
+      "img": ""
+    }
+  ]
+}
