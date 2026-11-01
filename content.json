@@ -1,11 +1,12 @@
 {
   "name": "Fadil",
   "role": "Developer",
-  "badge": "INTERMEDIATE",
+  "badge": "JUNIOR",
   "org": "SMA N 1 Negara",
   "major": "HIDUP SMANSAA",
   "motto": "Don’t repeat yourself",
   "qr": "https://www.instagram.com/tauf.fadill?mdxt=Y3R1OWQ3N21mNWk3",
+  "cardPhoto": "assets/1793504080095-1000215134.webp",
   "title": "Welcome to My Website",
   "taglines": [
     "Web Dev",
@@ -16,7 +17,7 @@
   "bio": "Saya seorang developer yang fokus pada pembuatan website fungsional sekaligus menarik secara visual. Sebagai siswa SMA, saya aktif mengasah keterampilan programming saya lewat berbagai proyek web. Mari terhubung dan berkolaborasi!",
   "photo": "assets/1793457331422-1000220862.png",
   "photoAlt": "assets/1793457335776-1000220861.png",
-  "brand": "Taufan Fadila H",
+  "brand": "Taufan Fadila",
   "flipEvery": 8,
   "education": [
     {
@@ -83,20 +84,122 @@
     }
   ],
   "stack": [
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Python",
-    "Firebase",
-    "Cloudflare",
-    "Git",
-    "GitHub"
+    {
+      "name": "JavaScript",
+      "icon": ""
+    },
+    {
+      "name": "HTML",
+      "icon": ""
+    },
+    {
+      "name": "CSS",
+      "icon": ""
+    },
+    {
+      "name": "Python",
+      "icon": ""
+    },
+    {
+      "name": "Firebase",
+      "icon": ""
+    },
+    {
+      "name": "Cloudflare",
+      "icon": ""
+    },
+    {
+      "name": "Git",
+      "icon": ""
+    },
+    {
+      "name": "GitHub",
+      "icon": ""
+    }
   ],
   "gallery": [
     {
-      "title": "Liburan Lebaran",
-      "desc": "liburan ke tumpak selo",
-      "img": "assets/1793456510877-1000000154.jpg"
+      "title": "Galeri Keluarga",
+      "desc": "",
+      "cover": "",
+      "photos": [
+        {
+          "img": "assets/1793456510877-1000000154.jpg",
+          "title": "Liburan Lebaran"
+        }
+      ]
     }
-  ]
+  ],
+  "comments": {
+    "projectId": "webportofolio-39875",
+    "apiKey": "AIzaSyAC9HXOsWo1IhmqLZkVewpk6xg5QC0SeVE"
+  },
+  "hiddenComments": [],
+  "ui": {
+    "loading": "Memuat…",
+    "navHome": "Home",
+    "navAbout": "About",
+    "navPortfolio": "Portfolio",
+    "navContact": "Contact",
+    "sndTitle": "Musik",
+    "heroBtn1": "Lihat projek",
+    "heroBtn2": "Hubungi saya",
+    "heroFind": "Find me",
+    "aboutTitle": "About Me",
+    "aboutHi": "Hi, I’m",
+    "aboutLink": "Lihat projek",
+    "photoHint": "Klik untuk ganti foto",
+    "eduTitle": "Education",
+    "expTitle": "",
+    "stat1": "Projects",
+    "stat1Sub": "Karya yang dibuat",
+    "stat2": "Certificates",
+    "stat2Sub": "Skill yang divalidasi",
+    "stat3": "Awards",
+    "stat3Sub": "Pencapaian diraih",
+    "musicL1": "A little music.",
+    "musicL2": "A lot of ideas.",
+    "musicText": "Musik menemani proses saya menulis kode, mendesain, dan membangun hal baru.",
+    "musicEmpty": "Tambahkan lagu lewat /developer/.",
+    "portTitle": "Portfolio",
+    "tabProjects": "Projects",
+    "tabCertificates": "Certificates",
+    "tabAchievements": "Achievements",
+    "tabStack": "Tech Stack",
+    "tabGallery": "Galeri Keluarga",
+    "galCount": "{n} foto",
+    "galEmpty": "Album masih kosong.",
+    "details": "Details",
+    "back": "Kembali",
+    "crumb": "Projects",
+    "techUsed": "Technologies Used",
+    "contactTitle": "Contact",
+    "findTitle": "Find me",
+    "lblInstagram": "Instagram",
+    "lblTikTok": "TikTok",
+    "lblGitHub": "GitHub",
+    "lblWhatsapp": "WhatsApp",
+    "lblEmail": "Email",
+    "contactEmpty": "Isi link kontak lewat /developer/.",
+    "cmTitle": "Komentar",
+    "cmName": "Nama",
+    "cmText": "Tulis komentar kamu di sini…",
+    "cmSend": "Kirim Komentar",
+    "cmEmpty": "Belum ada komentar. Jadilah yang pertama!",
+    "cmWait": "Tunggu {s} sebelum mengirim komentar lagi.",
+    "cmErr": "Gagal mengirim komentar. Coba lagi nanti.",
+    "cmOk": "Komentar terkirim. Terima kasih!",
+    "cmSim": "Mode simulasi: komentar hanya tersimpan di browser ini.",
+    "cmNeed": "Isi nama dan komentar dulu ya.",
+    "tNow": "baru saja",
+    "tMin": "menit lalu",
+    "tHour": "jam lalu",
+    "tDay": "hari lalu",
+    "cardScan": "SCAN HERE",
+    "cardConnect1": "CONNECT OUR",
+    "cardConnect2": "SOSMED",
+    "cardPortfolio": "PORTFOLIO",
+    "docTitle": "{Fadil} | Portofolio",
+    "footer": "© {2010} {fadil}"
+  }
 }
