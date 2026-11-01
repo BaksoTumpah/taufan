@@ -112,6 +112,15 @@ nav{padding:5px}nav a,nav button{color:var(--mu);font-size:.9rem}nav a.on,nav a:
 @media(max-width:600px){#md img{max-width:calc(100vw - 40px)}.lbn{position:absolute;bottom:18px}.lbn[data-lbn="-1"]{left:24px}.lbn[data-lbn="1"]{right:24px}}
 @media(max-width:560px){nav{width:calc(100% - 24px);justify-content:space-between}nav>a,nav>i{display:none}nav .br,#bg{display:block}nav .br{flex:1;padding:0 16px}}
 .ab a{color:var(--hi)}.ab a:hover{text-decoration:underline;text-underline-offset:4px}
+.alo{border:1px solid var(--bd);border-radius:14px;padding:0!important;margin:10px 0!important;background:rgba(255,255,255,.03)!important}.alo>summary{padding:12px 14px;cursor:pointer;list-style:none;display:flex;gap:8px;align-items:center}.alo>summary::-webkit-details-marker{display:none}.alo>summary:before{content:"▸";color:var(--hi);transition:transform .2s}.alo[open]>summary:before{transform:rotate(90deg)}.alo>div{padding:0 14px 14px}
+.gcv{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:6px}.gcv .gct{width:64px;height:80px;border-radius:10px;background:#12162b center/cover;border:1px solid var(--bd);flex:none}.dv .gcv input[type=file]{width:auto;flex:1;min-width:0;margin:0}
+.gxg{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px;margin:8px 0 12px}.gx{position:relative;border:1px solid var(--bd);border-radius:12px;padding:6px;background:#ffffff08}.gx .gi{aspect-ratio:1;border-radius:8px;background:#12162b center/cover}.dv .gx input{margin:6px 0 0;padding:6px 8px;font-size:.78rem;border-radius:8px}.gxd,.gxc{position:absolute;top:10px;width:26px;height:26px;border-radius:50%;border:0;cursor:pointer;background:#000a;color:#fff;font-size:.8rem;line-height:1;padding:0}.gxd{right:10px}.gxc{left:10px}.gxc.on{color:var(--gold-300);background:#000d}
+.gab{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.dv .gdel{margin-left:auto;color:#ff9a9a}
+@property --k{syntax:'<number>';inherits:true;initial-value:0}
+.ph{transition:--k .35s ease}
+/* foto asli memudar di bawah bercak Spiderman (kuping tidak menyembul), kebalikan dari mask .l3 */
+.ph .l1{-webkit-mask-image:radial-gradient(circle var(--r,100px) at var(--x) var(--y),rgba(0,0,0,calc(1 - var(--k))) 0,rgba(0,0,0,calc(1 - var(--k))) 40%,rgba(0,0,0,calc(1 - .55*var(--k))) 70%,#000 100%);mask-image:radial-gradient(circle var(--r,100px) at var(--x) var(--y),rgba(0,0,0,calc(1 - var(--k))) 0,rgba(0,0,0,calc(1 - var(--k))) 40%,rgba(0,0,0,calc(1 - .55*var(--k))) 70%,#000 100%)}
+.ph div{transition:opacity .2s linear}.ph .l3{transition:opacity .35s ease;-webkit-mask-image:radial-gradient(circle var(--r,100px) at var(--x) var(--y),#000 0,#000 40%,rgba(0,0,0,.55) 70%,transparent 100%);mask-image:radial-gradient(circle var(--r,100px) at var(--x) var(--y),#000 0,#000 40%,rgba(0,0,0,.55) 70%,transparent 100%)}
 @media(max-width:820px){.tb button{padding:8px 12px;font-size:.85rem}h1{font-size:2.5rem;margin-bottom:6px}.hero:before{right:50%;top:230px;transform:translate(50%,-50%);width:460px;height:460px}.gt{font-size:2.5rem}}
 @media(prefers-reduced-motion:reduce){.hero>div>*,#cv{animation:none}}
 </style>
@@ -282,7 +291,7 @@ $('#vw').onclick=()=>{R();/\/developer\/?$/.test(location.pathname)?location.hre
 function up(f,cb){if(!f)return;if(f.size>8e6)return say('#pm','File terlalu besar (maks 8 MB).');const r=new FileReader();r.onload=()=>{const p='assets/'+Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_');pend[p]=r.result.split(',')[1];mem[p]=URL.createObjectURL(f);cb(p)};r.readAsDataURL(f)}
 let dt='beranda';
 const rf=()=>{const t=DT.find(x=>x[0]==dt)||DT[0],h=$('#fm');$('#dtabs').innerHTML=DT.map(x=>`<button class="${x[0]==t[0]?'on':''}" data-dt="${x[0]}">${esc(x[1])}</button>`).join('');$('#ghb').style.display=t[0]=='deploy'?'':'none';$('#acc').style.display=t[0]=='akun'?'':'none';if(t[0]=='akun')$('#au').value=S.u;h.innerHTML='';
-if(t[2].length)fm(C,h,t[2]);if(t[3].length){const u=document.createElement('div');u.innerHTML='<h4 class="uh">Teks tampilan (semua bisa diubah)</h4>';h.append(u);fm(C.ui,h,t[3])}
+if(t[0]=='galeri')galEd(h);else if(t[2].length)fm(C,h,t[2]);if(t[3].length){const u=document.createElement('div');u.innerHTML='<h4 class="uh">Teks tampilan (semua bisa diubah)</h4>';h.append(u);fm(C.ui,h,t[3])}
 if(t[0]=='komentar'){const m=document.createElement('div');m.id='cmod';h.append(m);cmLoad().then(modRender)}};
 function fm(o,h,keys){const top=!!keys;for(const k of keys||Object.keys(o)){if(!(k in o))continue;const v=o[k],w=document.createElement('div');
 if(Array.isArray(v)){if(k=='tech'||typeof v[0]=='string'){w.innerHTML=`<label>${esc(lab(k,top))}</label><input value="${esc(v.join(', '))}">`;w.lastChild.oninput=e=>o[k]=e.target.value.split(',').map(s=>s.trim()).filter(Boolean)}
@@ -292,6 +301,27 @@ else{const ph=o===C.ui?esc(UI[k]):'';w.innerHTML=`<label>${esc(lab(k,top))}</lab
 if(/^(photo|photoAlt|cardPhoto|img|cover|src|logo|icon)$/.test(k)){const u=document.createElement('input');u.type='file';u.accept=k=='src'?'audio/*':'image/*';u.onchange=()=>up(u.files[0],p=>{o[k]=p;i.value=p});w.append(u)}}h.append(w)}}
 
 
+/* ---- editor album (tab Galeri) ---- */
+let GO=0;
+function galEd(h){const g=C.gallery=C.gallery||[],w=document.createElement('div'),mk=(t,c,f)=>{const b=document.createElement('button');b.className=c;b.textContent=t;b.onclick=f;return b};
+w.innerHTML=`<h4 class="uh">Album galeri (${g.length})</h4><p class="mu">Setiap album punya judul, deskripsi, sampul, dan foto sendiri. Klik sebuah album untuk membuka dan mengatur isinya.</p>`;
+const addB=()=>mk('+ Tambah album baru','btn p',()=>{g.push({title:'Album baru',desc:'',cover:'',photos:[]});GO=g.length-1;rf();setTimeout(()=>{const e=document.querySelector('.alo[open]');if(e)e.scrollIntoView({block:'start'})},50)});
+w.append(addB());if(!g.length){const p=document.createElement('p');p.className='mu';p.textContent='Belum ada album. Klik "+ Tambah album baru".';w.append(p)}
+g.forEach((a,i)=>{a.photos=a.photos||[];const d=document.createElement('details');d.className='alo';d.open=i===GO;d.ontoggle=()=>{if(d.open)GO=i};
+const sm=document.createElement('summary');sm.innerHTML=`<b>${esc(a.title||'(tanpa judul)')}</b><span class="mu">· ${a.photos.length} foto</span>`;d.append(sm);
+const f=document.createElement('div');f.innerHTML='<label>Judul album</label><input data-f="title"><label>Deskripsi</label><textarea rows="2" data-f="desc"></textarea><label>Sampul (kosong = foto pertama)</label>';
+const ti=f.querySelector('[data-f=title]'),de=f.querySelector('[data-f=desc]');ti.value=a.title||'';de.value=a.desc||'';ti.oninput=()=>{a.title=ti.value;sm.firstChild.textContent=a.title||'(tanpa judul)'};de.oninput=()=>a.desc=de.value;
+const cr=document.createElement('div');cr.className='gcv';cr.innerHTML=`<div class="gct" style="${bg(a.cover||(a.photos.find(p=>p.img)||{}).img)}"></div>`;
+const cu=document.createElement('input');cu.type='file';cu.accept='image/*';cu.onchange=()=>up(cu.files[0],p=>{a.cover=p;rf()});cr.append(cu);if(a.cover)cr.append(mk('Pakai foto pertama','bt',()=>{a.cover='';rf()}));f.append(cr);
+const lb=document.createElement('label');lb.textContent=`Foto (${a.photos.length})`;f.append(lb);
+const gr=document.createElement('div');gr.className='gxg';
+a.photos.forEach((p,j)=>{const c=document.createElement('div');c.className='gx';c.innerHTML=`<div class="gi" style="${bg(p.img)}"></div><input placeholder="Keterangan">`;const ci=c.querySelector('input');ci.value=p.title||'';ci.oninput=()=>p.title=ci.value;
+const x=mk('✕','gxd',()=>{a.photos.splice(j,1);rf()});x.setAttribute('aria-label','Hapus foto');const cv=mk('★','gxc',()=>{a.cover=p.img;rf()});cv.setAttribute('aria-label','Jadikan sampul');cv.title='Jadikan sampul';if(p.img&&a.cover===p.img)cv.classList.add('on');c.append(x,cv);gr.append(c)});f.append(gr);
+const pu=document.createElement('input');pu.type='file';pu.multiple=true;pu.accept='image/*';pu.onchange=()=>{const all=[...pu.files],fs=all.filter(x=>x.size<=8e6);if(fs.length<all.length)say('#pm',(all.length-fs.length)+' foto dilewati (maks 8 MB per file).');if(!fs.length)return;const res=[];let n=0;fs.forEach((x,k)=>up(x,p=>{res[k]={img:p,title:x.name.replace(/\.[^.]+$/,'')};if(++n==fs.length){a.photos.push(...res);rf()}}))};
+const pl=document.createElement('label');pl.textContent='Tambah foto (bisa pilih banyak sekaligus)';f.append(pl,pu);
+const bar=document.createElement('div');bar.className='gab';bar.append(mk('↑ Naik','bt',()=>{if(i>0){[g[i-1],g[i]]=[g[i],g[i-1]];GO=i-1;rf()}}),mk('↓ Turun','bt',()=>{if(i<g.length-1){[g[i+1],g[i]]=[g[i],g[i+1]];GO=i+1;rf()}}));
+const del=mk('Hapus album','bt gdel',()=>{if(del.dataset.arm){g.splice(i,1);GO=Math.max(0,i-1);rf();return}del.dataset.arm=1;del.textContent='Yakin hapus? Klik lagi';setTimeout(()=>{delete del.dataset.arm;del.textContent='Hapus album'},4000)});bar.append(del);f.append(bar);d.append(f);w.append(d)});
+if(g.length>1)w.append(addB());h.append(w)}
 /* ---- tab developer ---- */
 const LBT={name:'Nama lengkap (dipakai di kartu, About, footer)',role:'Peran (teks besar di kartu ID)',badge:'Label kecil di kartu (mis. JUNIOR)',org:'Sekolah/kampus (tulisan di kartu)',major:'Jurusan (teks vertikal di kartu)',motto:'Motto (di pita bawah kartu)',qr:'Tujuan QR di belakang kartu (kosong = alamat situs)',cardPhoto:'Foto di ID card (terpisah dari foto About)',flipEvery:'Detik sebelum kartu membalik sendiri (0 = mati)',title:'Judul besar di beranda',taglines:'Tagline mengetik (pisahkan dengan koma)',intro:'Paragraf pembuka di beranda',brand:'Nama brand di navbar HP',bio:'Bio di About (Enter = paragraf baru)',photo:'Foto asli (About)',photoAlt:'Foto alternatif / Spider-Man (About)',education:'Pendidikan (sekolah)',experience:'Pengalaman',links:'Link kontak',tracks:'Daftar lagu',projects:'Projek',certificates:'Sertifikat',achievements:'Prestasi (hapus semua item jika tidak ada)',stack:'Tech stack (nama + icon)',gallery:'Album galeri',comments:'Koneksi komentar (Firebase)'},
 LBI={title:'Judul',desc:'Deskripsi',img:'Gambar (upload)',tech:'Teknologi (pisahkan dengan koma)',logo:'Logo (upload)',name:'Nama',detail:'Detail / jurusan',period:'Periode',artist:'Artis',cover:'Sampul (upload)',icon:'Icon (upload gambar)',photos:'Foto-foto (bisa pilih banyak sekaligus)',src:'File mp3 (upload)',instagram:'Instagram (link)',tiktok:'TikTok (link)',github:'GitHub (link)',whatsapp:'WhatsApp (nomor, mis. 62812…)',email:'Email',projectId:'Firebase Project ID',apiKey:'Firebase Web API Key'},
@@ -330,7 +360,13 @@ C=Object.assign({},D,J);C.ui=Object.assign({},UI,J.ui);C.links=Object.assign({},
 try{route()}catch(e){console.error(e)}
 try{lan()}catch(e){console.error(e);const p=$('#hI');if(p)p.insertAdjacentHTML('afterend','<p class="mu" style="font-size:.75rem">Kartu 3D gagal dimuat: '+esc(e.message)+'</p>')}
 try{$('#cmb').onclick=cmSend;cmLoad()}catch(e){console.error(e)}
-try{const ph=$('#aP');const l1=ph.querySelector('.l1'),l2=ph.querySelector('.l2'),l3=ph.querySelector('.l3');let inv=false,o=1;window.phUpd=()=>{const r=ph.getBoundingClientRect(),vh=innerHeight,s=Math.min(1,Math.max(0,(vh*.75-r.top)/(vh*.6)));o=inv?s:1-s;l2.style.opacity=o;l1.style.opacity=1-o};addEventListener('scroll',phUpd,{passive:true});addEventListener('resize',phUpd);phUpd();ph.onmousemove=e=>{const r=ph.getBoundingClientRect();ph.style.setProperty('--x',e.clientX-r.left+'px');ph.style.setProperty('--y',e.clientY-r.top+'px');l3.style.opacity=(.55*(1-o)).toFixed(2)};ph.onmouseleave=()=>{l3.style.opacity=0};ph.onclick=()=>{inv=!inv;phUpd()};$('#bg').onclick=()=>$('#mm').classList.toggle('on');$('#mm').onclick=()=>$('#mm').classList.remove('on');
+try{const ph=$('#aP');const l1=ph.querySelector('.l1'),l2=ph.querySelector('.l2'),l3=ph.querySelector('.l3');let inv=false,o=1,hov=0,tx=0,ty=0,cx=0,cy=0,run=0;const sm=t=>t*t*(3-2*t);
+/* pudar scroll: Spiderman penuh saat foto baru muncul di bawah layar, selesai ~30% tinggi layar kemudian (foto asli tetap di bawah, tanpa bolong) */
+window.phUpd=()=>{const r=ph.getBoundingClientRect(),vh=innerHeight,s=sm(Math.min(1,Math.max(0,(vh*.72-r.top)/(vh*.3))));o=inv?s:1-s;l2.style.opacity=o;l3.style.opacity=hov?(1-o).toFixed(3):0;l1.style.opacity=(1-sm(Math.min(1,Math.max(0,(o-.55)/.45)))).toFixed(3);ph.style.setProperty('--k',hov?(1-o).toFixed(3):0);ph.style.setProperty('--r',Math.round(r.width*.34)+'px')};
+addEventListener('scroll',phUpd,{passive:true});addEventListener('resize',phUpd);phUpd();
+/* bercak kursor: inti solid, tepi lembut, bergerak halus mengikuti kursor */
+const tick=()=>{cx+=(tx-cx)*.3;cy+=(ty-cy)*.3;ph.style.setProperty('--x',cx+'px');ph.style.setProperty('--y',cy+'px');run=hov||Math.abs(tx-cx)>.5||Math.abs(ty-cy)>.5?requestAnimationFrame(tick):0},go=()=>{if(!run)run=requestAnimationFrame(tick)},pos=e=>{const r=ph.getBoundingClientRect();tx=e.clientX-r.left;ty=e.clientY-r.top};
+ph.onpointerenter=e=>{pos(e);cx=tx;cy=ty;hov=1;phUpd();go()};ph.onpointermove=e=>{pos(e);if(!hov){hov=1;phUpd()}go()};ph.onpointerleave=()=>{hov=0;phUpd()};ph.onclick=()=>{inv=!inv;phUpd()};$('#bg').onclick=()=>$('#mm').classList.toggle('on');$('#mm').onclick=()=>$('#mm').classList.remove('on');
 if(window.IntersectionObserver){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('g');setTimeout(()=>e.target.classList.remove('g'),800)}}),{threshold:.9});document.querySelectorAll('.gt').forEach(x=>io.observe(x))}}catch(e){console.error(e)}
 })();
 </script>
