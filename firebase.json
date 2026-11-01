@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "site": "taufan",
+    "public": ".",
+    "ignore": ["firebase.json", "**/.*", "README.md", ".github/**"]
+  }
+}
