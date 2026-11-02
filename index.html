@@ -286,9 +286,9 @@ rect(b,500,200,110,520,8,NV);vt(b,570,460,C.major||'',64,CR);rect(b,50,760,560,1
 {const g=s.createLinearGradient(0,0,64,0);g.addColorStop(0,'#13286b');g.addColorStop(.5,'#2a52c4');g.addColorStop(1,'#13286b');s.fillStyle=g;s.fillRect(0,0,64,512);s.fillStyle='#e8c97a';s.fillRect(3,0,2,512);s.fillRect(59,0,2,512)}s.save();s.translate(40,500);s.rotate(-Math.PI/2);s.fillStyle='#f6e7bd';s.font='700 28px Inter';s.fillText((nameU||'')+'  ✦  ',0,0);s.restore();st.needsUpdate=true};
 const pa=paint,pimg=()=>{if(!C.cardPhoto)return pa();const i=new Image();i.onload=()=>pa(i);i.onerror=()=>pa();i.src=U(C.cardPhoto)};paint=pimg;pimg();(document.fonts&&document.fonts.load('80px Anton').then(()=>pimg()));
 const S0=.82,N=6,RL=.4,AY=2.55,P=[],Q=[];for(let i=0;i<N;i++){P.push(new T.Vector3(0,AY-i*RL,0));Q.push(P[i].clone())}P[N-1].x+=.5;
-const M=20,pos=new Float32Array(M*6),uv=new Float32Array(M*4),ix=[];for(let i=0;i<M;i++){uv.set([0,i/(M-1)*5,1,i/(M-1)*5],i*4);if(i<M-1){const a=i*2;ix.push(a,a+1,a+2,a+1,a+3,a+2)}}
+const M=44,pos=new Float32Array(M*6),uv=new Float32Array(M*4),ix=[];for(let i=0;i<M;i++){uv.set([0,i/(M-1)*5,1,i/(M-1)*5],i*4);if(i<M-1){const a=i*2;ix.push(a,a+1,a+2,a+1,a+3,a+2)}}
 const sg=new T.BufferGeometry();sg.setAttribute('position',new T.BufferAttribute(pos,3));sg.setAttribute('uv',new T.BufferAttribute(uv,2));sg.setIndex(ix);const strap=new T.Mesh(sg,new T.MeshBasicMaterial({map:st,side:T.DoubleSide}));strap.frustumCulled=false;sc.add(strap);
-let dr=false,sy=0,sv=0,fl=0,d0=null,fk=0,hov=false,supp=false,wide=false,fr=0;const tg=new T.Vector3(),off=new T.Vector3(),rc=new T.Raycaster(),pl=new T.Plane(new T.Vector3(0,0,1),0),ms=new T.Vector2(),A0=new T.Vector3(0,AY,0),A=A0.clone();
+let rl=0,dr=false,sy=0,sv=0,fl=0,d0=null,fk=0,hov=false,supp=false,wide=false,fr=0;const tg=new T.Vector3(),off=new T.Vector3(),rc=new T.Raycaster(),pl=new T.Plane(new T.Vector3(0,0,1),0),ms=new T.Vector2(),A0=new T.Vector3(0,AY,0),A=A0.clone();
 const ray=e=>{const r=el.getBoundingClientRect();ms.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);rc.setFromCamera(ms,cam)},wd=e=>{ray(e);const v=new T.Vector3();rc.ray.intersectPlane(pl,v);return v},hit=e=>{if(!el.clientHeight)return false;ray(e);return rc.intersectObject(card,true).length>0};
 /* skala tetap di layar lebar (600px tinggi kanvas lama = 3.48 satuan), titik gantung diukur dari kolom kanan hero */
 const PPU=600/(2*6.5*Math.tan(Math.PI/12)),meas=()=>{wide=true;const ph=$('#cvp'),a=el.getBoundingClientRect(),n=new T.Vector3(0,AY,0);
@@ -297,22 +297,27 @@ cam.updateProjectionMatrix();if(!n.equals(A0)){const d=n.clone().sub(A0);P.forEa
 const ok=e=>!(e.target&&e.target.closest&&e.target.closest('nav,#mm,#md,#dev,#det'));
 /* tarikan dibatasi ke area layar yang terlihat supaya kartu tidak pernah hilang */
 const clampE=e=>{const r=el.getBoundingClientRect(),m=110;return{clientX:Math.min(Math.max(e.clientX,Math.max(r.left,0)+m),Math.min(r.right,innerWidth)-m),clientY:Math.min(Math.max(e.clientY,Math.max(r.top,0)+m),Math.min(r.bottom,innerHeight)-m)}};/* m = jarak minimal pointer dari tepi layar */
-const endDrag=e=>{if(dr&&d0&&e&&Math.hypot(e.clientX-d0.x,e.clientY-d0.y)<6&&performance.now()-d0.t<450){fl=fl?0:Math.PI;fk=0}if(dr){supp=true;setTimeout(()=>supp=false,80)}dr=false;d0=null;document.documentElement.style.cursor=hov?'grab':'';document.body.style.userSelect=''};
+const endDrag=e=>{if(dr&&d0&&e&&Math.hypot(e.clientX-d0.x,e.clientY-d0.y)<6&&performance.now()-d0.t<450){fl=fl?0:Math.PI;fk=0}if(dr){supp=true;rl=45;setTimeout(()=>supp=false,80)}dr=false;d0=null;document.documentElement.style.cursor=hov?'grab':'';document.body.style.userSelect=''};
 addEventListener('pointerdown',e=>{if(e.button>0||!ok(e)||!hit(e))return;dr=true;d0={x:e.clientX,y:e.clientY,t:performance.now()};off.copy(P[N-1]).sub(wd(e));tg.copy(P[N-1]);document.documentElement.style.cursor='grabbing';document.body.style.userSelect='none';e.preventDefault()});
 addEventListener('pointermove',e=>{if(dr)tg.copy(wd(clampE(e))).add(off);else if(ok(e)){const q=hit(e);if(q!==hov){hov=q;document.documentElement.style.cursor=q?'grab':''}}});
 addEventListener('pointerup',endDrag);addEventListener('pointercancel',()=>endDrag(null));addEventListener('blur',()=>endDrag(null));
 addEventListener('click',e=>{if(supp){e.stopPropagation();e.preventDefault()}},true);
 addEventListener('touchstart',e=>{if(ok(e)&&hit(e.touches[0]))e.preventDefault()},{passive:false});addEventListener('resize',meas);
 let w=0,h=0,t=0;(function loop(){requestAnimationFrame(loop);const cw=el.clientWidth,ch=el.clientHeight;if(!cw)return;if(cw!=w||ch!=h){w=cw;h=ch;rd.setSize(w,h,false);cam.aspect=w/h;meas()}else if(++fr%45==0)meas();t+=.016;
-const vx=P[N-1].x-Q[N-1].x;for(let i=1;i<N;i++){const p=P[i],v=p.clone().sub(Q[i]);Q[i].copy(p);p.addScaledVector(v,.985);p.y-=.012;p.z*=.97}P[N-1].x+=Math.sin(t*.9)*.0005;
-{const R=(N-1)*RL*.97;let Ad=A0;if(dr){const dv=tg.clone().sub(A0),l=dv.length();if(l>R)Ad=tg.clone().addScaledVector(dv,-R/l)}A.lerp(Ad,dr?.3:.07)}
-for(let k=0;k<12;k++){P[0].copy(A);if(dr)P[N-1].copy(tg);for(let i=0;i<N-1;i++){const a=P[i],c=P[i+1],d=c.clone().sub(a),l=d.length()||1e-4,wa=i?1:0,wb=dr&&i+1==N-1?0:1,q=wa+wb;if(!q)continue;d.multiplyScalar((l-RL)/l);a.addScaledVector(d,wa/q);c.addScaledVector(d,-wb/q)}}
+const vx=P[N-1].x-Q[N-1].x;if(rl>0)rl--;for(let i=1;i<N;i++){const p=P[i],v=p.clone().sub(Q[i]).clampLength(0,.09);Q[i].copy(p);p.addScaledVector(v,rl>0?.95:.985);p.y-=.012;p.z*=.97}P[N-1].x+=Math.sin(t*.9)*.0005;
+A.copy(A0);
+const tS=tg.clone();if(dr){const dv=tg.clone().sub(A0),l=dv.length(),R0=(N-1)*RL;if(l>R0)tS.copy(A0).addScaledVector(dv,Math.min(R0+(l-R0)*.45,R0*1.55)/l)}/* batas elastis: ditarik makin jauh makin berat, seperti karet */
+for(let k=0;k<16;k++){P[0].copy(A);if(dr)P[N-1].copy(tS);for(let i=0;i<N-1;i++){const a=P[i],c=P[i+1],d=c.clone().sub(a),l=d.length()||1e-4,wa=i?1:0,wb=dr&&i+1==N-1?0:1,q=wa+wb;if(!q)continue;d.multiplyScalar((l-RL)/l);a.addScaledVector(d,wa/q);c.addScaledVector(d,-wb/q)}}
 const u=P[N-1].clone().sub(P[N-2]).normalize();if(u.y>-.3){u.y=-.3;u.normalize()}card.scale.setScalar(S0);card.position.copy(P[N-1]).addScaledVector(u,(H/2+.3)*S0);
 /* kartu selalu menggantung ke bawah dari ujung tali dan tidak keluar dari area terlihat */
 if(wide||dr){const hh=Math.tan(cam.fov*Math.PI/360)*6.5,hw=hh*cam.aspect,mx=Math.max(hw-1,.3),my=Math.max(hh-1,.3);card.position.x=Math.min(Math.max(card.position.x,-mx),mx);card.position.y=Math.min(Math.max(card.position.y,-.5-my),-.5+my)}
 card.rotation.z=Math.atan2(u.x,-u.y);
 const FE=+C.flipEvery;if(FE>0&&!dr&&!document.hidden){fk+=.016;if(fk>(fl?4:FE)){fl=fl?0:Math.PI;fk=0}}sv+=(fl-sy)*.05+vx*1.2;sv*=.9;sy+=sv;cg.rotation.y=sy;
-const zr=card.rotation.z,bw=new T.Vector3(card.position.x-Math.sin(zr)*(H/2+.31)*S0,card.position.y+Math.cos(zr)*(H/2+.31)*S0,card.position.z),pts=new T.CatmullRomCurve3(P.slice(0,N-1).concat([bw])).getPoints(M-1);for(let i=0;i<M;i++){const a=pts[Math.max(i-1,0)],c=pts[Math.min(i+1,M-1)],tx2=c.x-a.x,ty=c.y-a.y,l=Math.hypot(tx2,ty)||1,ph=sy*Math.pow(i/(M-1),1.6),co=Math.cos(ph)*.085,sx=-ty/l*co,sy2=tx2/l*co,sz=Math.sin(ph)*.085,p=pts[i];pos.set([p.x+sx,p.y+sy2,p.z+sz,p.x-sx,p.y-sy2,p.z-sz],i*6)}sg.attributes.position.needsUpdate=true;rd.render(sc,cam)})()}
+const zr=card.rotation.z,bw=new T.Vector3(card.position.x-Math.sin(zr)*(H/2+.31)*S0,card.position.y+Math.cos(zr)*(H/2+.31)*S0,card.position.z);
+/* tali menerus ke atas layar (tak berujung) dan memanjang seperti karet: makin ditarik makin tipis dan polanya merenggang */
+let Lc=0;for(let i=0;i<N-1;i++)Lc+=(i<N-2?P[i+1]:bw).distanceTo(P[i]);const stre=Math.max(1,Lc/((N-1)*RL)),thin=1/Math.sqrt(stre);
+const EX=14,pts=new T.CatmullRomCurve3([new T.Vector3(A0.x,A0.y+EX,0),new T.Vector3(A0.x,A0.y+EX*.3,0)].concat(P.slice(0,N-1),[bw])).getPoints(M-1);let cum=0;
+for(let i=0;i<M;i++){const a=pts[Math.max(i-1,0)],c=pts[Math.min(i+1,M-1)],tx2=c.x-a.x,ty=c.y-a.y,l=Math.hypot(tx2,ty)||1,ph=sy*Math.pow(i/(M-1),1.6),co=Math.cos(ph)*.085*thin,sx=-ty/l*co,sy2=tx2/l*co,sz=Math.sin(ph)*.085*thin,p=pts[i];if(i)cum+=p.distanceTo(pts[i-1]);const v=(cum-EX)*2.5/stre;uv.set([0,v,1,v],i*4);pos.set([p.x+sx,p.y+sy2,p.z+sz,p.x-sx,p.y-sy2,p.z-sz],i*6)}sg.attributes.position.needsUpdate=true;sg.attributes.uv.needsUpdate=true;rd.render(sc,cam)})()}
 
 /* ---- developer panel ---- */
 const enc=new TextEncoder(),b64=b=>btoa(String.fromCharCode(...new Uint8Array(b))),ub=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
