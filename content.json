@@ -234,6 +234,7 @@
     "galCount": "{n} foto",
     "galEmpty": "Album masih kosong.",
     "details": "Details",
+    "visit": "Kunjungi",
     "back": "Kembali",
     "crumb": "Projects",
     "techUsed": "Technologies Used",
@@ -266,5 +267,10 @@
     "docTitle": "{Fadil} | Portofolio",
     "footer": "© {2010} {fadil}"
   },
-  "dev": null
+  "dev": {
+    "v": 2,
+    "i": 600000,
+    "s": "LgRtHqImn+2KTejolAteDQ==",
+    "h": "nsBbPAaRjj/9q+rJ5MX3TjayMUgmkftLvEG6wc3UZt8="
+  }
 }
