@@ -1,0 +1,21 @@
+# rahasia & kredensial: jangan pernah di-commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+*service-account*.json
+*serviceAccount*.json
+*-firebase-adminsdk-*.json
+.firebase/
+.firebaserc.local
+
+# sampah sistem & editor
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
