@@ -7,7 +7,7 @@ GitHub Free hanya mengizinkan Pages dari repo **public**. Isi repo hanya kode si
 2. Tambahkan 2 file: `index.html` (isi dari berkas ini) dan `developer/index.html` (Add file > Create new file, ketik `developer/index.html` sebagai nama, lalu tempel isinya). Folder `assets/` terbentuk otomatis saat kamu upload gambar atau mp3.
 3. Repo > Settings > Pages > Source: **Deploy from a branch**, branch `main`, folder `/ (root)` > Save. Tunggu 1-2 menit.
 4. Buat token: GitHub > Settings > Developer settings > Fine-grained tokens. Pilih hanya repo ini, izin **Contents: Read and write**, beri masa berlaku.
-5. Buka `https://.../developer/`, login `110610` / `110610`, ganti password, lalu isi Owner, Repo, Branch, dan Token di bagian "Koneksi GitHub".
+5. Buka `https://.../developer/`, login bawaan (lihat panel; wajib diganti ke username dan password baru, minimal 10 karakter, yang berlaku di semua perangkat), lalu isi Owner, Repo, Branch, dan Token di bagian "Koneksi GitHub".
 
 Setelah itu semua edit (teks, foto, mp3, galeri) cukup dari `/developer/`, termasuk lewat HP. Klik **Simpan & deploy**; situs ter-update sekitar 1-3 menit kemudian.
 
