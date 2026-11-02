@@ -3,11 +3,25 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+
+# izin minimal untuk GITHUB_TOKEN
+permissions:
+  contents: read
+  checks: write
+
+# satu deploy pada satu waktu supaya tidak saling menimpa
+concurrency:
+  group: deploy-live
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
