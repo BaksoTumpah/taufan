@@ -123,6 +123,9 @@ nav{padding:5px}nav a,nav button{color:var(--mu);font-size:.9rem}nav a.on,nav a:
 .ph div{transition:opacity .2s linear}.ph .l3{transition:opacity .35s ease;-webkit-mask-image:radial-gradient(circle var(--r,100px) at var(--x) var(--y),#000 0,#000 40%,rgba(0,0,0,.55) 70%,transparent 100%);mask-image:radial-gradient(circle var(--r,100px) at var(--x) var(--y),#000 0,#000 40%,rgba(0,0,0,.55) 70%,transparent 100%)}
 @media(max-width:820px){.tb button{padding:8px 12px;font-size:.85rem}h1{font-size:2.5rem;margin-bottom:6px}.hero:before{right:50%;top:230px;transform:translate(50%,-50%);width:460px;height:460px}.gt{font-size:2.5rem}}
 @media(prefers-reduced-motion:reduce){.hero>div>*,#cv{animation:none}}
+/* kartu ID: di layar lebar kanvas membentang selebar halaman supaya kartu bisa ditarik ke mana saja */
+.cvp{display:none}
+@media(min-width:821px){.cvp{display:block;height:600px;pointer-events:none}.hero>#cv{position:absolute;left:50%;margin-left:-50vw;top:0;width:100vw;height:100%;pointer-events:none;z-index:2;cursor:default}}
 /* ===== panel developer: menu samping, kartu per bagian, item bisa dilipat ===== */
 .dv{max-width:1080px;padding:calc(18px + env(safe-area-inset-top,0px)) 18px 90px}
 .dv .lc{max-width:400px;margin:12vh auto 0;padding:28px;border:1px solid var(--bd);border-radius:var(--r-lg);background:var(--glass)}.dv .lc h2{margin:0 0 6px;font-size:2.1rem}.dv .lc .btn{width:100%;margin:6px 0 0;text-align:center}
@@ -159,7 +162,7 @@ nav{padding:5px}nav a,nav button{color:var(--mu);font-size:.9rem}nav a.on,nav a:
 <section id="home" class="hero"><div>
 <h1 id="hT"></h1><div class="rl" id="hR"></div><p class="mu" id="hI" style="max-width:480px;margin:0 0 22px"></p>
 <a class="btn p" href="#portfolio" data-ui="heroBtn1">Lihat projek →</a><a class="btn gl" href="#contact" data-ui="heroBtn2">Hubungi saya ↗</a><div class="fm" id="hL"></div></div>
-<canvas id="cv"></canvas></section>
+<canvas id="cv"></canvas><span id="cvp" class="cvp"></span></section>
 <section id="about"><div class="cn"><h2 class="gt" data-g="About Me" data-ui="aboutTitle">About Me</h2></div>
 <div class="ab"><div class="nm" id="aN"></div><div class="ph" id="aP" title="Klik untuk ganti foto"><div class="l1"></div><div class="l2"></div><div class="l3"></div></div><div id="aB"></div></div>
 <div id="edu"></div><div class="st" id="st"></div>
@@ -285,16 +288,29 @@ const pa=paint,pimg=()=>{if(!C.cardPhoto)return pa();const i=new Image();i.onloa
 const N=6,RL=.4,AY=2.55,P=[],Q=[];for(let i=0;i<N;i++){P.push(new T.Vector3(0,AY-i*RL,0));Q.push(P[i].clone())}P[N-1].x+=.5;
 const M=20,pos=new Float32Array(M*6),uv=new Float32Array(M*4),ix=[];for(let i=0;i<M;i++){uv.set([0,i/(M-1)*5,1,i/(M-1)*5],i*4);if(i<M-1){const a=i*2;ix.push(a,a+1,a+2,a+1,a+3,a+2)}}
 const sg=new T.BufferGeometry();sg.setAttribute('position',new T.BufferAttribute(pos,3));sg.setAttribute('uv',new T.BufferAttribute(uv,2));sg.setIndex(ix);const strap=new T.Mesh(sg,new T.MeshBasicMaterial({map:st,side:T.DoubleSide}));strap.frustumCulled=false;sc.add(strap);
-let dr=false,sy=0,sv=0,fl=0,d0=null,fk=0;const tg=new T.Vector3(),off=new T.Vector3(),rc=new T.Raycaster(),pl=new T.Plane(new T.Vector3(0,0,1),0),ms=new T.Vector2();
-const ray=e=>{const r=el.getBoundingClientRect();ms.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);rc.setFromCamera(ms,cam)},wd=e=>{ray(e);const v=new T.Vector3();rc.ray.intersectPlane(pl,v);return v},hit=e=>{ray(e);return rc.intersectObject(card,true).length>0};
-el.addEventListener('pointerdown',e=>{if(hit(e)){dr=true;d0={x:e.clientX,y:e.clientY,t:performance.now()};el.setPointerCapture(e.pointerId);off.copy(P[N-1]).sub(wd(e));tg.copy(P[N-1]);el.style.cursor='grabbing'}});
-el.addEventListener('pointermove',e=>{if(dr)tg.copy(wd(e)).add(off);else el.style.cursor=hit(e)?'grab':'default'});
-addEventListener('pointerup',e=>{if(dr&&d0&&Math.hypot(e.clientX-d0.x,e.clientY-d0.y)<6&&performance.now()-d0.t<450){fl=fl?0:Math.PI;fk=0}dr=false;d0=null;el.style.cursor='grab'});
-el.addEventListener('touchstart',e=>{if(hit(e.touches[0]))e.preventDefault()},{passive:false});
-let w=0,h=0,t=0;(function loop(){requestAnimationFrame(loop);const cw=el.clientWidth,ch=el.clientHeight;if(!cw)return;if(cw!=w||ch!=h){w=cw;h=ch;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}t+=.016;
+let dr=false,sy=0,sv=0,fl=0,d0=null,fk=0,hov=false,supp=false,wide=false,fr=0;const tg=new T.Vector3(),off=new T.Vector3(),rc=new T.Raycaster(),pl=new T.Plane(new T.Vector3(0,0,1),0),ms=new T.Vector2(),A0=new T.Vector3(0,AY,0),A=A0.clone();
+const ray=e=>{const r=el.getBoundingClientRect();ms.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);rc.setFromCamera(ms,cam)},wd=e=>{ray(e);const v=new T.Vector3();rc.ray.intersectPlane(pl,v);return v},hit=e=>{if(!el.clientHeight)return false;ray(e);return rc.intersectObject(card,true).length>0};
+/* skala tetap di layar lebar (600px tinggi kanvas lama = 3.48 satuan), titik gantung diukur dari kolom kanan hero */
+const PPU=600/(2*6.5*Math.tan(Math.PI/12)),meas=()=>{wide=matchMedia('(min-width:821px)').matches;const ph=$('#cvp'),a=el.getBoundingClientRect(),n=new T.Vector3(0,AY,0);
+if(wide&&ph&&a.height){const b=ph.getBoundingClientRect();n.x=(b.left+b.width/2-(a.left+a.width/2))/PPU;n.y=AY-(b.top+b.height/2-(a.top+a.height/2))/PPU;cam.fov=2*Math.atan(a.height/PPU/2/6.5)*180/Math.PI}else cam.fov=30;
+cam.updateProjectionMatrix();if(!n.equals(A0)){const d=n.clone().sub(A0);P.forEach(p=>p.add(d));Q.forEach(q=>q.add(d));A.add(d);A0.copy(n)}};
+const ok=e=>!(e.target&&e.target.closest&&e.target.closest('nav,#mm,#md,#dev,#det'));
+/* tarikan dibatasi ke area layar yang terlihat supaya kartu tidak pernah hilang */
+const clampE=e=>{const r=el.getBoundingClientRect(),m=110;return{clientX:Math.min(Math.max(e.clientX,Math.max(r.left,0)+m),Math.min(r.right,innerWidth)-m),clientY:Math.min(Math.max(e.clientY,Math.max(r.top,0)+m),Math.min(r.bottom,innerHeight)-m)}};/* m = jarak minimal pointer dari tepi layar */
+const endDrag=e=>{if(dr&&d0&&e&&Math.hypot(e.clientX-d0.x,e.clientY-d0.y)<6&&performance.now()-d0.t<450){fl=fl?0:Math.PI;fk=0}if(dr){supp=true;setTimeout(()=>supp=false,80)}dr=false;d0=null;document.documentElement.style.cursor=hov?'grab':'';document.body.style.userSelect=''};
+addEventListener('pointerdown',e=>{if(e.button>0||!ok(e)||!hit(e))return;dr=true;d0={x:e.clientX,y:e.clientY,t:performance.now()};off.copy(P[N-1]).sub(wd(e));tg.copy(P[N-1]);document.documentElement.style.cursor='grabbing';document.body.style.userSelect='none';e.preventDefault()});
+addEventListener('pointermove',e=>{if(dr)tg.copy(wd(clampE(e))).add(off);else if(ok(e)){const q=hit(e);if(q!==hov){hov=q;document.documentElement.style.cursor=q?'grab':''}}});
+addEventListener('pointerup',endDrag);addEventListener('pointercancel',()=>endDrag(null));addEventListener('blur',()=>endDrag(null));
+addEventListener('click',e=>{if(supp){e.stopPropagation();e.preventDefault()}},true);
+addEventListener('touchstart',e=>{if(ok(e)&&hit(e.touches[0]))e.preventDefault()},{passive:false});addEventListener('resize',meas);
+let w=0,h=0,t=0;(function loop(){requestAnimationFrame(loop);const cw=el.clientWidth,ch=el.clientHeight;if(!cw)return;if(cw!=w||ch!=h){w=cw;h=ch;rd.setSize(w,h,false);cam.aspect=w/h;meas()}else if(++fr%45==0)meas();t+=.016;
 const vx=P[N-1].x-Q[N-1].x;for(let i=1;i<N;i++){const p=P[i],v=p.clone().sub(Q[i]);Q[i].copy(p);p.addScaledVector(v,.985);p.y-=.012;p.z*=.97}P[N-1].x+=Math.sin(t*.9)*.0005;
-for(let k=0;k<12;k++){P[0].set(0,AY,0);if(dr)P[N-1].copy(tg);for(let i=0;i<N-1;i++){const a=P[i],c=P[i+1],d=c.clone().sub(a),l=d.length()||1e-4,wa=i?1:0,wb=dr&&i+1==N-1?0:1,q=wa+wb;if(!q)continue;d.multiplyScalar((l-RL)/l);a.addScaledVector(d,wa/q);c.addScaledVector(d,-wb/q)}}
-const u=P[N-1].clone().sub(P[N-2]).normalize();card.position.copy(P[N-1]).addScaledVector(u,H/2+.3);card.rotation.z=Math.atan2(u.x,-u.y);
+{const R=(N-1)*RL*.97;let Ad=A0;if(dr){const dv=tg.clone().sub(A0),l=dv.length();if(l>R)Ad=tg.clone().addScaledVector(dv,-R/l)}A.lerp(Ad,dr?.3:.07)}
+for(let k=0;k<12;k++){P[0].copy(A);if(dr)P[N-1].copy(tg);for(let i=0;i<N-1;i++){const a=P[i],c=P[i+1],d=c.clone().sub(a),l=d.length()||1e-4,wa=i?1:0,wb=dr&&i+1==N-1?0:1,q=wa+wb;if(!q)continue;d.multiplyScalar((l-RL)/l);a.addScaledVector(d,wa/q);c.addScaledVector(d,-wb/q)}}
+const u=P[N-1].clone().sub(P[N-2]).normalize();if(u.y>-.3){u.y=-.3;u.normalize()}card.position.copy(P[N-1]).addScaledVector(u,H/2+.3);
+/* kartu selalu menggantung ke bawah dari ujung tali dan tidak keluar dari area terlihat */
+if(wide||dr){const hh=Math.tan(cam.fov*Math.PI/360)*6.5,hw=hh*cam.aspect,mx=Math.max(hw-1,.3),my=Math.max(hh-1,.3);card.position.x=Math.min(Math.max(card.position.x,-mx),mx);card.position.y=Math.min(Math.max(card.position.y,-.5-my),-.5+my)}
+card.rotation.z=Math.atan2(u.x,-u.y);
 const FE=+C.flipEvery;if(FE>0&&!dr&&!document.hidden){fk+=.016;if(fk>(fl?4:FE)){fl=fl?0:Math.PI;fk=0}}sv+=(fl-sy)*.05+vx*1.2;sv*=.9;sy+=sv;cg.rotation.y=sy;
 const pts=new T.CatmullRomCurve3(P).getPoints(M-1);for(let i=0;i<M;i++){const a=pts[Math.max(i-1,0)],c=pts[Math.min(i+1,M-1)],tx2=c.x-a.x,ty=c.y-a.y,l=Math.hypot(tx2,ty)||1,ph=sy*Math.pow(i/(M-1),1.6),co=Math.cos(ph)*.085,sx=-ty/l*co,sy2=tx2/l*co,sz=Math.sin(ph)*.085,p=pts[i];pos.set([p.x+sx,p.y+sy2,p.z+sz,p.x-sx,p.y-sy2,p.z-sz],i*6)}sg.attributes.position.needsUpdate=true;rd.render(sc,cam)})()}
 
