@@ -27,7 +27,7 @@ service cloud.firestore {
       allow update: if false;
 
       allow delete: if request.auth != null
-        && request.auth.token.email == 'GANTI_DENGAN_EMAIL_ADMIN_FIREBASE';
+        && request.auth.token.email == 'fadilataufan14@gmail.com';
     }
 
     // semua koleksi lain tertutup
