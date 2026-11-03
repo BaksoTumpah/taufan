@@ -30,6 +30,6 @@ Pindahkan isi `firebase-opsional/` ke root repo (`deploy.yml` ke `.github/workfl
 ### Yang harus diatur di Firebase/Google Cloud (tidak bisa dari repo)
 1. **Aturan Firestore**: tempel isi `firestore.rules` di Firebase Console > Firestore > Rules (ganti email admin), lalu Publish. Ini yang menahan bot spam komentar di sisi server.
 2. **Batasi API key** (Google Cloud Console > APIs & Services > Credentials > Browser key): *Website restrictions* ke domain situs kamu, dan *API restrictions* hanya Cloud Firestore API dan Identity Toolkit API. Kunci web Firebase memang tampil di sisi pengunjung; pembatasan ini yang mencegah dipakai dari situs lain.
-3. **App Check** (Firebase Console > App Check) dengan reCAPTCHA untuk Firestore, agar hanya situs aslimu yang bisa menulis komentar.
+3. **App Check** (Firebase Console > App Check) dengan reCAPTCHA v3 untuk Firestore, agar hanya situs aslimu yang bisa menulis komentar. Kodenya sudah ada di `index.html` (kunci situs sudah terisi). Aktifkan dengan mengisi `appId` aplikasi web Firebase (Project settings > Your apps, bentuknya `1:123…:web:abc…`) di `content.json` pada `comments.appId`. Kunci API juga harus mengizinkan **Firebase App Check API**. Pantau dulu di App Check > APIs > Cloud Firestore sampai hampir semua permintaan berstatus *verified*, baru klik Enforce.
 4. Matikan pendaftaran akun baru di Authentication (Settings > User actions) kalau hanya admin yang memakainya.
 5. Aktifkan **Secret scanning + Push protection** di GitHub > Settings > Code security.
