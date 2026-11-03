@@ -276,8 +276,9 @@
   "comments": {
     "projectId": "webportofolio-39875",
     "apiKey": "AIzaSyAC9HXOsWo1IhmqLZkVewpk6xg5QC0SeVE",
-    "appId": "1:256138184688:web:58a3c931181278ec413f35",
-    "appCheckKey": "6LcU-w0uAAAAAJTRifw-012d2lZqYixveu8Dl5s8"
+    "appId": "",
+    "appCheckKey": "6LcU-w0uAAAAAJTRifw-012d2lZqYixveu8Dl5s8",
+    "appCheckProvider": "enterprise"
   },
   "hiddenComments": [],
   "ui": {

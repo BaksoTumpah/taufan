@@ -204,7 +204,7 @@ tracks:[{title:'Judul Lagu 1',artist:'Artis',cover:'',src:''},{title:'Judul Lagu
 projects:[{title:'Projek Pertama',desc:'Deskripsi singkat projek. Ganti lewat /developer/.',img:'',tech:['Python','HTML','CSS','JavaScript']},{title:'Projek Kedua',desc:'Tambahkan screenshot dan teknologi yang dipakai.',img:'',tech:['PHP','MySQL']},{title:'Projek Ketiga',desc:'Dashboard atau aplikasi lain yang pernah kamu buat.',img:'',tech:['React','Firebase']}],
 certificates:[{title:'Sertifikat Contoh',desc:'Penyelenggara dan tahun.',img:'',tech:[]}],achievements:[{title:'Prestasi Contoh',desc:'Juara dan tingkat lomba.',img:'',tech:[]}],
 stack:['React','JavaScript','HTML','CSS','Python','PHP','MySQL','Firebase','Git','GitHub'].map(n=>({name:n,icon:''})),gallery:[{title:'Momen keluarga',desc:'Kumpulan foto bersama keluarga.',cover:'',photos:[{img:'',title:'Foto 1'},{img:'',title:'Foto 2'},{img:'',title:'Foto 3'},{img:'',title:'Foto 4'}]}],
-comments:{projectId:'webportofolio-39875',apiKey:'AIzaSyAC9HXOsWo1IhmqLZkVewpk6xg5QC0SeVE',appCheckKey:'6LcU-w0uAAAAAJTRifw-012d2lZqYixveu8Dl5s8',appId:'1:256138184688:web:58a3c931181278ec413f35'},hiddenComments:[],ui:UI};
+comments:{projectId:'webportofolio-39875',apiKey:'AIzaSyAC9HXOsWo1IhmqLZkVewpk6xg5QC0SeVE',appCheckKey:'6LcU-w0uAAAAAJTRifw-012d2lZqYixveu8Dl5s8',appId:'',appCheckProvider:'enterprise'},hiddenComments:[],ui:UI};
 let C=D,mem={},pend={},PW='',S=null,G=null,DD=false,tab='projects',ci=0,paint=null;
 let BASE=location.pathname.replace(/(developer\/?)?(index\.html)?$/,'');if(!/\/$/.test(BASE))BASE=BASE.replace(/[^/]*$/,'');
 const U=p=>!p?'':mem[p]||(/^(https?:|data:|blob:)/.test(p)?p:BASE+p),bg=p=>p?`background-image:url('${esc(U(p))}')`:'';
@@ -251,10 +251,11 @@ $('#snd').onclick=tgl;
 /* ---- App Check: token reCAPTCHA v3 ditukar ke token Firebase lewat REST, lalu dikirim sebagai header X-Firebase-AppCheck.
    Aktif hanya jika comments.appId dan comments.appCheckKey terisi; kalau gagal, permintaan tetap jalan tanpa token (aman dipakai sebelum Enforce). ---- */
 const AC={t:'',x:0,p:null},acOn=()=>{const c=C.comments||{};return!!(c.appId&&c.appCheckKey&&c.projectId&&c.apiKey)},
-acLoad=k=>new Promise((ok,no)=>{if(window.grecaptcha&&grecaptcha.execute)return ok();const s=document.createElement('script');s.src='https://www.google.com/recaptcha/api.js?render='+encodeURIComponent(k);s.async=true;s.onload=()=>ok();s.onerror=()=>no(Error('recaptcha'));document.head.appendChild(s)}),
+acEnt=()=>(C.comments||{}).appCheckProvider!=='v3',acRc=()=>window.grecaptcha&&(acEnt()?grecaptcha.enterprise:grecaptcha),
+acLoad=k=>new Promise((ok,no)=>{if(acRc()&&acRc().execute)return ok();const s=document.createElement('script');s.src='https://www.google.com/recaptcha/'+(acEnt()?'enterprise.js':'api.js')+'?render='+encodeURIComponent(k);s.async=true;s.onload=()=>ok();s.onerror=()=>no(Error('recaptcha'));document.head.appendChild(s)}),
 acTok=()=>{if(!acOn())return Promise.resolve('');if(AC.t&&Date.now()<AC.x)return Promise.resolve(AC.t);if(AC.p)return AC.p;
-return AC.p=(async()=>{try{const c=C.comments;await acLoad(c.appCheckKey);await new Promise(r=>grecaptcha.ready(r));const rc=await grecaptcha.execute(c.appCheckKey,{action:'comments'});
-const r=await fetch('https://firebaseappcheck.googleapis.com/v1/projects/'+encodeURIComponent(c.projectId)+'/apps/'+encodeURIComponent(c.appId)+':exchangeRecaptchaV3Token?key='+encodeURIComponent(c.apiKey),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({recaptcha_v3_token:rc})});
+return AC.p=(async()=>{try{const c=C.comments;await acLoad(c.appCheckKey);await new Promise(r=>acRc().ready(r));const rc=await acRc().execute(c.appCheckKey,{action:'comments'});
+const r=await fetch('https://firebaseappcheck.googleapis.com/v1/projects/'+encodeURIComponent(c.projectId)+'/apps/'+encodeURIComponent(c.appId)+(acEnt()?':exchangeRecaptchaEnterpriseToken':':exchangeRecaptchaV3Token')+'?key='+encodeURIComponent(c.apiKey),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(acEnt()?{recaptchaEnterpriseToken:rc}:{recaptcha_v3_token:rc})});
 if(!r.ok)throw Error(r.status);const j=await r.json();AC.t=j.token||'';AC.x=Date.now()+Math.max(60,(parseInt(j.ttl)||3600)-300)*1000;return AC.t}catch(e){return''}finally{AC.p=null}})()},
 acH=async h=>{const t=await acTok();if(t)h['X-Firebase-AppCheck']=t;return h};
 /* ---- komentar ---- */
