@@ -192,6 +192,85 @@
           "title": "1000000390"
         }
       ]
+    },
+    {
+      "title": "Album baru",
+      "desc": "",
+      "cover": "",
+      "photos": [
+        {
+          "img": "assets/1793702997050-Screenshot_2026-05-18_090500.png",
+          "title": "Screenshot 2026-05-18 090500"
+        },
+        {
+          "img": "assets/1793702997060-Screenshot_2026-05-18_090544.png",
+          "title": "Screenshot 2026-05-18 090544"
+        },
+        {
+          "img": "assets/1793702997058-Screenshot_2026-05-19_075025.png",
+          "title": "Screenshot 2026-05-19 075025"
+        },
+        {
+          "img": "assets/1793702997061-Screenshot_2026-05-19_075100.png",
+          "title": "Screenshot 2026-05-19 075100"
+        },
+        {
+          "img": "assets/1793702997062-Screenshot_2026-06-01_151314.png",
+          "title": "Screenshot 2026-06-01 151314"
+        },
+        {
+          "img": "assets/1793702997063-Screenshot_2026-06-01_151406.png",
+          "title": "Screenshot 2026-06-01 151406"
+        },
+        {
+          "img": "assets/1793702997064-Screenshot_2026-06-05_131644.png",
+          "title": "Screenshot 2026-06-05 131644"
+        },
+        {
+          "img": "assets/1793702997065-Screenshot_2026-06-05_131749.png",
+          "title": "Screenshot 2026-06-05 131749"
+        },
+        {
+          "img": "assets/1793702997066-Screenshot_2026-06-05_131855.png",
+          "title": "Screenshot 2026-06-05 131855"
+        },
+        {
+          "img": "assets/1793702997067-Screenshot_2026-06-05_132123.png",
+          "title": "Screenshot 2026-06-05 132123"
+        },
+        {
+          "img": "assets/1793702997068-Screenshot_2026-06-05_132309.png",
+          "title": "Screenshot 2026-06-05 132309"
+        },
+        {
+          "img": "assets/1793702997070-Screenshot_2026-06-05_132425.png",
+          "title": "Screenshot 2026-06-05 132425"
+        },
+        {
+          "img": "assets/1793702997070-Screenshot_2026-06-05_132548.png",
+          "title": "Screenshot 2026-06-05 132548"
+        },
+        {
+          "img": "assets/1793702997073-Screenshot_2026-06-08_102058.png",
+          "title": "Screenshot 2026-06-08 102058"
+        },
+        {
+          "img": "assets/1793702997074-Screenshot_2026-06-19_202711.png",
+          "title": "Screenshot 2026-06-19 202711"
+        },
+        {
+          "img": "assets/1793702997075-Screenshot_2026-06-19_202750.png",
+          "title": "Screenshot 2026-06-19 202750"
+        },
+        {
+          "img": "assets/1793702997077-Screenshot_2026-06-19_204846.png",
+          "title": "Screenshot 2026-06-19 204846"
+        },
+        {
+          "img": "assets/1793702997078-Screenshot_2026-06-19_205510.png",
+          "title": "Screenshot 2026-06-19 205510"
+        }
+      ]
     }
   ],
   "comments": {
