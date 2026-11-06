@@ -55,7 +55,7 @@
   },
   "tracks": [
     {
-      "title": "Iloveyou Gwen",
+      "title": "Iloveyou",
       "artist": "Fadil",
       "cover": "assets/1793457448320-1000220858.jpg",
       "src": "assets/1793457754382-Interaksi.mp3"
@@ -281,6 +281,13 @@
     "appCheckProvider": "enterprise"
   },
   "hiddenComments": [],
+  "theme": "elegant",
+  "maintenance": {
+    "on": false,
+    "title": "Sedang Dalam Perbaikan",
+    "desc": "Website sedang kami perbaiki agar lebih baik. Silakan kembali beberapa saat lagi.",
+    "eta": ""
+  },
   "ui": {
     "loading": "Memuat…",
     "navHome": "Home",
