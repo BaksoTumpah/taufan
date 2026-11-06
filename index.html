@@ -248,6 +248,10 @@ html.mtv #mtb{display:block;position:fixed;left:50%;bottom:14px;transform:transl
 .mtsw input:focus-visible+.tk{outline:2px solid var(--hi);outline-offset:2px}
 .mtsw span b{display:block}.mtsw span small{color:var(--mu)}
 .mtst{display:inline-block;margin-left:8px;font-size:.72rem;padding:2px 9px;border-radius:99px;background:rgba(255,255,255,.1);color:var(--mu)}.mtst.on{background:#d6452f;color:#fff}
+.sc{margin-left:8px;font-size:.74rem;color:var(--mu);font-weight:400}.sc.w{color:#e8a13a}
+.sgp{margin:12px 0 4px;padding:14px 16px;border-radius:14px;background:#202124;border:1px solid rgba(255,255,255,.1);max-width:620px;font-family:Arial,sans-serif}
+.sgp small{display:block;color:#9aa0a6;font-size:.7rem;margin-bottom:8px}.sgp .u{color:#bdc1c6;font-size:.8rem}.sgp .t{color:#8ab4f8;font-size:1.2rem;line-height:1.3;margin:3px 0;overflow-wrap:anywhere}.sgp .d{color:#bdc1c6;font-size:.88rem;line-height:1.5;overflow-wrap:anywhere}
+.gbt{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.gst{font-size:.85rem;margin:10px 0 0}
 </style>
 </head>
 <body>
@@ -274,7 +278,7 @@ html.mtv #mtb{display:block;position:fixed;left:50%;bottom:14px;transform:transl
 <input id="du" placeholder="Username" autocomplete="username"><input id="dp" type="password" placeholder="Password" autocomplete="current-password"><button class="btn p" id="dl">Masuk</button><div class="ms" id="lm"></div></div>
 <div id="cpw" class="lc" style="display:none"><h2>Buat login developer</h2><p class="mu">Belum ada login yang tersimpan. Buat username (minimal 3 karakter, tanpa spasi) dan password (minimal 10 karakter). Login baru berlaku di semua perangkat setelah disimpan ke GitHub.</p><input id="nu" placeholder="Username baru" autocomplete="username"><input id="np" type="password" placeholder="Password baru (minimal 10 karakter)" autocomplete="new-password"><button class="btn p" id="ns">Simpan login</button><div class="ms" id="nm"></div></div>
 <div id="pn" style="display:none"><div class="bar"><b class="ttl">Panel Developer</b><button class="btn p" id="sv">Simpan &amp; deploy</button><button class="btn" id="vw">Lihat situs</button><button class="btn" id="lo">Keluar</button></div><div class="ms" id="pm"></div>
-<div id="dtabs" class="dtb"></div><div id="ghb" class="fc" style="display:none"><div class="fh"><h3>Koneksi GitHub</h3></div><p class="mu">Dipakai agar tombol Simpan &amp; deploy mengirim perubahan ke repo. Token dienkripsi di browser dengan password kamu. Tanpa token, tombol Simpan hanya simulasi.</p><div class="fgrid"><div class="f"><label>Owner</label><input id="go"></div><div class="f"><label>Repo</label><input id="gp"></div><div class="f"><label>Branch</label><input id="gb" value="main"></div><div class="f"><label>Token (fine-grained, hanya repo ini)</label><input id="gt" type="password"></div></div><button class="bt" id="gs">Simpan koneksi</button></div>
+<div id="dtabs" class="dtb"></div><div id="ghb" class="fc" style="display:none"><div class="fh"><h3>Koneksi GitHub</h3></div><p class="mu">Dipakai agar tombol Simpan &amp; deploy mengirim perubahan ke repo. Token dienkripsi di browser dengan password kamu. Tanpa token, tombol Simpan hanya simulasi.</p><div class="fgrid"><div class="f"><label>Owner</label><input id="go"></div><div class="f"><label>Repo</label><input id="gp"></div><div class="f"><label>Branch</label><input id="gb" value="main"></div><div class="f"><label>Token (fine-grained, hanya repo ini)</label><input id="gt" type="password"></div></div><button class="bt" id="gs">Simpan koneksi</button><div class="gbt"><button class="bt" id="gk" type="button">Simpan token ke Google Password Manager</button><button class="bt" id="gg" type="button">Ambil token dari Google Password Manager</button></div><p class="mu gst" id="gst"></p></div>
 <div id="acc" class="fc" style="display:none"><div class="fh"><h3>Ubah login developer</h3></div><p class="mu">Login disimpan sebagai hash (PBKDF2 + salt) di data situs, bukan password aslinya, sehingga berlaku di semua perangkat. Perubahan baru berlaku setelah ter-deploy ke GitHub.</p><p class="mu" id="astat"></p><button class="bt" id="ag">Terapkan login saat ini ke semua perangkat</button><div class="fgrid"><div class="f fw"><label>Username baru</label><input id="au" autocomplete="off"></div><div class="f fw"><label>Password saat ini</label><input id="ac" type="password" autocomplete="current-password"></div><div class="f"><label>Password baru (minimal 10 karakter)</label><input id="ap" type="password" autocomplete="new-password"></div><div class="f"><label>Ulangi password baru</label><input id="ap2" type="password" autocomplete="new-password"></div></div><button class="bt" id="as">Simpan login</button><div class="mu" id="am"></div></div>
 <div id="fm"></div></div>
 </div>
@@ -299,8 +303,8 @@ tracks:[{title:'Judul Lagu 1',artist:'Artis',cover:'',src:''},{title:'Judul Lagu
 projects:[{title:'Projek Pertama',desc:'Deskripsi singkat projek. Ganti lewat /developer/.',img:'',tech:['Python','HTML','CSS','JavaScript']},{title:'Projek Kedua',desc:'Tambahkan screenshot dan teknologi yang dipakai.',img:'',tech:['PHP','MySQL']},{title:'Projek Ketiga',desc:'Dashboard atau aplikasi lain yang pernah kamu buat.',img:'',tech:['React','Firebase']}],
 certificates:[{title:'Sertifikat Contoh',desc:'Penyelenggara dan tahun.',img:'',tech:[]}],achievements:[{title:'Prestasi Contoh',desc:'Juara dan tingkat lomba.',img:'',tech:[]}],
 stack:['React','JavaScript','HTML','CSS','Python','PHP','MySQL','Firebase','Git','GitHub'].map(n=>({name:n,icon:''})),gallery:[{title:'Momen keluarga',desc:'Kumpulan foto bersama keluarga.',cover:'',photos:[{img:'',title:'Foto 1'},{img:'',title:'Foto 2'},{img:'',title:'Foto 3'},{img:'',title:'Foto 4'}]}],
-comments:{projectId:'webportofolio-39875',apiKey:'AIzaSyAC9HXOsWo1IhmqLZkVewpk6xg5QC0SeVE',appCheckKey:'6LcU-w0uAAAAAJTRifw-012d2lZqYixveu8Dl5s8',appId:'',appCheckProvider:'enterprise'},hiddenComments:[],theme:'elegant',maintenance:{on:false,title:'Sedang Dalam Perbaikan',desc:'Website sedang kami perbaiki agar lebih baik. Silakan kembali beberapa saat lagi.',eta:''},ui:UI};
-let C=D,mem={},pend={},PW='',S=null,G=null,DD=false,tab='projects',ci=0,paint=null;
+comments:{projectId:'webportofolio-39875',apiKey:'AIzaSyAC9HXOsWo1IhmqLZkVewpk6xg5QC0SeVE',appCheckKey:'6LcU-w0uAAAAAJTRifw-012d2lZqYixveu8Dl5s8',appId:'',appCheckProvider:'enterprise'},hiddenComments:[],theme:'elegant',seo:{title:'',desc:''},maintenance:{on:false,title:'Sedang Dalam Perbaikan',desc:'Website sedang kami perbaiki agar lebih baik. Silakan kembali beberapa saat lagi.',eta:''},ui:UI};
+let C=D,mem={},pend={},PW='',S=null,G=null,DD=false,TKF=false,tab='projects',ci=0,paint=null;
 let BASE=location.pathname.replace(/(developer\/?)?(index\.html)?$/,'');if(!/\/$/.test(BASE))BASE=BASE.replace(/[^/]*$/,'');
 const U=p=>!p?'':mem[p]||(/^(https?:|data:|blob:)/.test(p)?p:BASE+p),bg=p=>p?`background-image:url('${esc(U(p))}')`:'';
 const svg=(d,s=20)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`,IC={code:'<path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/>',award:'<circle cx="12" cy="9" r="5"/><path d="m8.5 13.5-1.5 7 5-3 5 3-1.5-7"/>',trophy:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',play:'<path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/>',pause:'<path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/>'};
@@ -311,7 +315,7 @@ const hue=s=>[...s].reduce((a,c)=>a*31+c.charCodeAt(0)|0,7)%360,ab=n=>n.length<4
 const au=new Audio();au.onplay=au.onpause=()=>pr();au.onended=()=>pt((ci+1)%C.tracks.length,1);au.ontimeupdate=()=>{const b=$('#pg i');if(b&&au.duration)b.style.width=au.currentTime/au.duration*100+'%'};
 function applyUI(){document.querySelectorAll('[data-ui]').forEach(e=>{const t=L(e.dataset.ui);e.textContent=t;if(e.dataset.g!==undefined)e.dataset.g=t});document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=L(e.dataset.ph));$('#snd').title=L('sndTitle');$('#aP').title=L('photoHint')}
 
-function R(){const c=C,l=c.links||{};applyUI();document.title=fmt(L('docTitle'),{name:c.name});
+function R(){const c=C,l=c.links||{};applyUI();seoApply();
 $('#hT').innerHTML=esc(c.title).replace(/^(\S+ \S+) (.*)$/,'<em>$1</em><br>$2');{const k=JSON.stringify(c.taglines);if(typer.k!==k){typer.k=k;typer()}}$('#br').textContent=c.brand||c.name;$('#hI').textContent=c.intro;
 const lb=n=>L('lbl'+n),lk=[['Instagram',l.instagram],['TikTok',l.tiktok],['GitHub',l.github]].filter(x=>x[1]).map(x=>[lb(x[0]),x[1],lb(x[0]).slice(0,2).toUpperCase()]),wa=l.whatsapp?'https://wa.me/'+l.whatsapp.replace(/\D/g,''):'',em=l.email?'mailto:'+l.email:'';
 $('#hL').innerHTML=esc(L('heroFind'))+lk.map(x=>`<a class="gl sq h" href="${esc(x[1])}" target="_blank" rel="noopener" title="${esc(x[0])}">${esc(x[2])}</a>`).join('');
@@ -446,13 +450,16 @@ try{const ok=await freshDev();let pass=false,s;
 if(C.dev){pass=await chkDev(u,p);s={u,m:0}}
 else if(ok){const l=JSON.parse(ls('dv')||'null');if(!l){say('#lm','');show('#cpw');return}pass=u==l.u&&await sha(p)==l.h;s=l}
 else return say('#lm','Tidak bisa memuat data login dari situs. Periksa koneksi lalu coba lagi.');
-if(pass){ls('dvf','{"n":0,"t":0}');if(C.dev)try{localStorage.removeItem('dv')}catch(e){}PW=p;S=s;say('#lm','');const e=ls('dvt');if(e)try{G=JSON.parse(await unseal(p,e));$('#go').value=G.o;$('#gp').value=G.r;$('#gb').value=G.b}catch(x){}show(s.m?'#cpw':'#pn');if(!s.m)rf()}
+if(pass){ls('dvf','{"n":0,"t":0}');if(C.dev)try{localStorage.removeItem('dv')}catch(e){}PW=p;S=s;say('#lm','');const e=ls('dvt');TKF=false;if(e)try{G=JSON.parse(await unseal(p,e));$('#go').value=G.o;$('#gp').value=G.r;$('#gb').value=G.b}catch(x){TKF=true}show(s.m?'#cpw':'#pn');if(!s.m)rf()}
 else{f.n++;f.t=f.n>=3?Date.now()+Math.min(2**f.n*1000,9e5):0;ls('dvf',JSON.stringify(f));say('#lm','Username atau password salah.')}}
 finally{btn.disabled=false}};
 async function pushDev(){if(!G){say('#pm','Login baru tersimpan di browser ini. Agar berlaku di semua perangkat: buka tab Deploy, hubungkan GitHub, lalu klik Simpan & deploy.');return}say('#pm','Menerapkan login ke semua perangkat…');if(await deploy())say('#pm','Login baru dikirim ke GitHub. Berlaku di semua perangkat setelah deploy selesai (1–2 menit); sampai itu perangkat lain masih memakai login lama.')}
 $('#ns').onclick=async()=>{const u=$('#nu').value.trim(),p=$('#np').value;if(u.length<3||/\s/.test(u)||u=='110610')return say('#nm','Username baru minimal 3 karakter, tanpa spasi, dan bukan username bawaan.');if(p.length<10||p=='110610')return say('#nm','Password minimal 10 karakter dan bukan password bawaan.');
 say('#nm','Menyimpan…');C.dev=await mkDev(u,p);S={u,m:0};ls('dv',JSON.stringify({u,h:await sha(p)}));if(G)ls('dvt',await seal(p,JSON.stringify(G)));PW=p;$('#nu').value=$('#np').value='';say('#nm','');show('#pn');rf();await pushDev()};
-$('#gs').onclick=async()=>{G={o:$('#go').value.trim(),r:$('#gp').value.trim(),b:$('#gb').value.trim()||'main',t:$('#gt').value.trim()||(G&&G.t)};if(!G.t)return say('#pm','Isi token.');ls('dvt',await seal(PW,JSON.stringify(G)));$('#gt').value='';say('#pm','Koneksi tersimpan (terenkripsi).')};
+$('#gs').onclick=async()=>{G={o:$('#go').value.trim(),r:$('#gp').value.trim(),b:$('#gb').value.trim()||'main',t:$('#gt').value.trim()||(G&&G.t)};if(!G.t)return say('#pm','Isi token.');ls('dvt',await seal(PW,JSON.stringify(G)));TKF=false;try{if(navigator.storage&&navigator.storage.persist)await navigator.storage.persist()}catch(e){}$('#gt').value='';gStat();say('#pm','Koneksi tersimpan (terenkripsi) di browser ini.')};
+const gStat=()=>{const e=ls('dvt');$('#gst').textContent=G&&G.t?'Status: token aktif dan tersimpan terenkripsi di browser ini. Token ikut terbuka otomatis saat kamu login.':e?(TKF?'Status: ada token tersimpan tetapi tidak bisa dibuka dengan password ini (mungkin password pernah diganti). Tempel token lagi lalu klik Simpan koneksi.':'Status: token tersimpan tetapi belum terbuka. Login ulang.'):'Status: belum ada token tersimpan di browser ini. Tempel token lalu klik Simpan koneksi; setelah itu tidak perlu salin lagi.'};
+$('#gk').onclick=async()=>{if(!G||!G.t)return say('#pm','Isi token dan klik Simpan koneksi dulu.');if(!window.PasswordCredential||!navigator.credentials)return say('#pm','Browser ini tidak mendukung penyimpanan ke Google Password Manager. Pakai Chrome.');try{await navigator.credentials.store(new PasswordCredential({id:'github-token:'+G.o+'/'+G.r,name:'Token GitHub '+G.o+'/'+G.r,password:G.t}));say('#pm','Chrome akan menanyakan; pilih Simpan. Token ikut tersimpan di akun Google kamu, jadi pastikan akun itu aman.')}catch(e){say('#pm','Gagal menyimpan: '+e.message)}};
+$('#gg').onclick=async()=>{if(!window.PasswordCredential||!navigator.credentials)return say('#pm','Browser ini tidak mendukung Google Password Manager. Pakai Chrome.');try{const c=await navigator.credentials.get({password:true,mediation:'required'});if(c&&c.password){$('#gt').value=c.password;say('#pm','Token terisi dari Google Password Manager. Klik Simpan koneksi.')}else say('#pm','Tidak ada token yang dipilih.')}catch(e){say('#pm','Gagal mengambil: '+e.message)}};
 const gh=async(m,p,b)=>{const r=await fetch(`https://api.github.com/repos/${G.o}/${G.r}/contents/${p}`+(m=='GET'?'?ref='+encodeURIComponent(G.b)+'&t='+Date.now():''),{cache:'no-store',method:m,headers:{Authorization:'Bearer '+G.t,Accept:'application/vnd.github+json'},body:b&&JSON.stringify(b)});if(!r.ok)throw Error('GitHub '+r.status);return r.json()};
 async function deploy(){if(!G){say('#pm','Simulasi: perubahan tampil di situs pada sesi ini. Hubungkan GitHub agar tersimpan permanen.');return false}
 try{for(const p in pend){say('#pm','Mengunggah '+p+'…');await gh('PUT',p,{message:'upload '+p,content:pend[p],branch:G.b})}pend={};let sha;try{sha=(await gh('GET','content.json')).sha}catch(e){}
@@ -461,8 +468,8 @@ $('#sv').onclick=()=>{R();deploy()};
 $('#vw').onclick=()=>{R();/\/developer\/?$/.test(location.pathname)?location.href=BASE:(location.hash='home')};$('#lo').onclick=()=>{PW='';G=null;show('#lg');$('#dp').value=''};
 function up(f,cb){if(!f)return;if(f.size>8e6)return say('#pm','File terlalu besar (maks 8 MB).');const r=new FileReader();r.onload=()=>{const p='assets/'+Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_');pend[p]=r.result.split(',')[1];mem[p]=URL.createObjectURL(f);cb(p)};r.readAsDataURL(f)}
 let dt='beranda';
-const rf=()=>{const t=DT.find(x=>x[0]==dt)||DT[0],h=$('#fm');$('#dtabs').innerHTML=DT.map(x=>`<button class="${x[0]==t[0]?'on':''}" data-dt="${x[0]}">${esc(x[1])}</button>`).join('');$('#ghb').style.display=t[0]=='deploy'?'':'none';$('#acc').style.display=t[0]=='akun'?'':'none';if(t[0]=='akun'){$('#au').value=S.u;akStat()}h.innerHTML=t[0]=='akun'||t[0]=='deploy'?'':`<h2 class="tabh">${esc(t[1])}</h2>`;
-if(t[0]=='galeri')galEd(h);else if(t[0]=='tema')temaEd(h);else if(t[2].length)fm(C,h,t[2]);
+const rf=()=>{const t=DT.find(x=>x[0]==dt)||DT[0],h=$('#fm');$('#dtabs').innerHTML=DT.map(x=>`<button class="${x[0]==t[0]?'on':''}" data-dt="${x[0]}">${esc(x[1])}</button>`).join('');$('#ghb').style.display=t[0]=='deploy'?'':'none';if(t[0]=='deploy')gStat();$('#acc').style.display=t[0]=='akun'?'':'none';if(t[0]=='akun'){$('#au').value=S.u;akStat()}h.innerHTML=t[0]=='akun'||t[0]=='deploy'?'':`<h2 class="tabh">${esc(t[1])}</h2>`;
+if(t[0]=='galeri')galEd(h);else if(t[0]=='tema')temaEd(h);else if(t[0]=='seo')seoEd(h);else if(t[2].length)fm(C,h,t[2]);
 if(t[0]=='komentar'){const m=document.createElement('div');m.id='cmod';m.className='fc';h.append(m);cmLoad().then(modRender)}
 if(t[3].length){const d=document.createElement('details');d.className='fc tt';d.innerHTML=`<summary><h3>Teks tampilan</h3><span class="mu">${t[3].length} teks, opsional</span></summary><p class="mu">Ubah kata-kata yang tampil di situs. Kosongkan untuk memakai teks bawaan.</p>`;const g=document.createElement('div');g.className='fgrid';fm(C.ui,g,t[3],1);d.append(g);h.append(d)}};
 /* tab Tema & Perbaikan di dashboard developer */
@@ -542,7 +549,7 @@ const DT=[['beranda','Beranda',['title','taglines','intro','brand'],['loading','
 ['galeri','Galeri',['gallery'],['tabGallery','galCount','galEmpty']],
 ['kontak','Kontak',['links'],['contactTitle','findTitle','lblInstagram','lblTikTok','lblGitHub','lblWhatsapp','lblEmail','contactEmpty']],
 ['komentar','Komentar',['comments'],['cmTitle','cmName','cmText','cmSend','cmEmpty','cmWait','cmErr','cmOk','cmSim','cmNeed','tNow','tMin','tHour','tDay']],
-['tema','Tema & Perbaikan',[],[]],['umum','Umum',[],['docTitle','footer']],['akun','Akun',[],[]],['deploy','Deploy',[],[]]];
+['tema','Tema & Perbaikan',[],[]],['seo','SEO',[],[]],['umum','Umum',[],['docTitle','footer']],['akun','Akun',[],[]],['deploy','Deploy',[],[]]];
 $('#dtabs').onclick=e=>{const b=e.target.closest('[data-dt]');if(b){dt=b.dataset.dt;rf()}};
 let FB=null;
 function modRender(){const el=$('#cmod');if(!el)return;const h=C.hiddenComments||(C.hiddenComments=[]),cf=!!cmCfg(),can=FB||!cf;
@@ -558,6 +565,22 @@ m.textContent='Menyimpan…';C.dev=await mkDev(u,p);S={u,m:0};ls('dv',JSON.strin
 $('#ag').onclick=async()=>{const m=$('#am');m.textContent='Menyimpan…';C.dev=await mkDev(S.u,PW);akStat();await pushDev();akStat();m.textContent=''};
 /* ---- boot ---- */
 const isDev=()=>location.hash=='#developer'||/\/developer\/?$/.test(location.pathname),RT=/^(projects|certificates|achievements|album)-(\d+)$/;
+/* ---- SEO: judul dan deskripsi untuk Google (kosong = bawaan) ---- */
+const SEO0=(document.querySelector('meta[name=description]')||{}).content||'';
+function seoApply(){const s=C.seo||{},t=(s.title||'').trim()||fmt(L('docTitle'),{name:C.name}),d=(s.desc||'').trim()||SEO0;document.title=t;
+const set=(q,v)=>{const e=document.querySelector(q);if(e)e.setAttribute('content',v)};
+set('meta[name=description]',d);set('meta[property="og:title"]',t);set('meta[property="og:description"]',d);set('meta[name="twitter:title"]',t);set('meta[name="twitter:description"]',d)}
+function seoEd(h){const s=C.seo=Object.assign({},D.seo,C.seo),a=document.createElement('section');a.className='fc';
+a.innerHTML=`<div class="fh"><h3>SEO &amp; Google</h3></div><p class="mu">Judul dan deskripsi yang tampil di hasil pencarian Google dan saat link dibagikan. Kosongkan untuk memakai bawaan. Setelah deploy, Google butuh beberapa hari untuk memperbarui; minta indexing ulang di Search Console agar lebih cepat.</p>
+<div class="fgrid"><div class="f fw"><label>Judul (disarankan maksimal 60 karakter) <span class="sc" id="sTc"></span></label><input id="sT" maxlength="100"></div><div class="f fw"><label>Deskripsi singkat (disarankan 120–160 karakter) <span class="sc" id="sDc"></span></label><textarea id="sD" rows="3" maxlength="300"></textarea></div></div>
+<div class="sgp"><small>Pratinjau di Google</small><div class="u">taufan.web.app</div><div class="t" id="sPT"></div><div class="d" id="sPD"></div></div>
+<div class="gab"><button type="button" class="bt" id="sR">Kembalikan ke bawaan</button></div>`;
+h.append(a);
+const T=$('#sT'),Dd=$('#sD'),pv=()=>{const t=(s.title||'').trim()||fmt(L('docTitle'),{name:C.name}),d=(s.desc||'').trim()||SEO0;$('#sPT').textContent=t;$('#sPD').textContent=d;
+const c1=$('#sTc'),c2=$('#sDc');c1.textContent=t.length+' karakter';c1.classList.toggle('w',t.length>60);c2.textContent=d.length+' karakter';c2.classList.toggle('w',d.length>160||d.length<70)};
+T.value=s.title||'';Dd.value=s.desc||'';T.placeholder=fmt(L('docTitle'),{name:C.name});Dd.placeholder=SEO0;
+T.oninput=()=>{s.title=T.value;seoApply();pv()};Dd.oninput=()=>{s.desc=Dd.value;seoApply();pv()};
+$('#sR').onclick=()=>{s.title='';s.desc='';T.value='';Dd.value='';seoApply();pv()};pv()}
 /* ---- tema & mode perbaikan ---- */
 const THEMES=[
 {id:'elegant',name:'Elegant',desc:'Hitam dengan aksen emas, mewah dan tenang (bawaan).',sw:['#06070c','#d4b06a','#f4efe4'],bar:'#04050f'},
@@ -587,7 +610,7 @@ if(!CanvasRenderingContext2D.prototype.roundRect)CanvasRenderingContext2D.protot
 (async()=>{
 let n=0;const iv=setInterval(()=>{n+=4;$('#lp').textContent=Math.min(n,100);$('#lb').style.width=Math.min(n,100)*2+'px';if(n>=100){clearInterval(iv);const l=$('#ld');if(l){l.style.opacity=0;l.style.pointerEvents='none';setTimeout(()=>l.remove(),500)}}},25);
 let J={};try{const ac=new AbortController(),to=setTimeout(()=>ac.abort(),2500),r=await fetch(BASE+'content.json',{cache:'no-cache',signal:ac.signal});clearTimeout(to);if(r.ok){const j=await r.json();if(j&&typeof j=='object')J=j}}catch(e){}
-C=Object.assign({},D,J);C.ui=Object.assign({},UI,J.ui);C.links=Object.assign({},D.links,J.links);C.comments=Object.assign({},D.comments,J.comments);C.hiddenComments=J.hiddenComments||[];C.maintenance=Object.assign({},D.maintenance,J.maintenance);C.theme=THEMES.some(x=>x.id==J.theme)?J.theme:'elegant';applyTheme(C.theme);DD=!!(C.dev&&C.dev.h);C.stack=(C.stack||[]).map(x=>typeof x=='string'?{name:x,icon:''}:x);if(C.gallery.length&&!C.gallery[0].photos)C.gallery=[{title:L('tabGallery'),desc:'',cover:'',photos:C.gallery.map(x=>({img:x.img||'',title:x.title||''}))}];
+C=Object.assign({},D,J);C.ui=Object.assign({},UI,J.ui);C.links=Object.assign({},D.links,J.links);C.comments=Object.assign({},D.comments,J.comments);C.hiddenComments=J.hiddenComments||[];C.maintenance=Object.assign({},D.maintenance,J.maintenance);C.seo=Object.assign({},D.seo,J.seo);C.theme=THEMES.some(x=>x.id==J.theme)?J.theme:'elegant';applyTheme(C.theme);DD=!!(C.dev&&C.dev.h);C.stack=(C.stack||[]).map(x=>typeof x=='string'?{name:x,icon:''}:x);if(C.gallery.length&&!C.gallery[0].photos)C.gallery=[{title:L('tabGallery'),desc:'',cover:'',photos:C.gallery.map(x=>({img:x.img||'',title:x.title||''}))}];
 try{route()}catch(e){console.error(e)}
 try{lan()}catch(e){console.error(e);const p=$('#hI');if(p)p.insertAdjacentHTML('afterend','<p class="mu" style="font-size:.75rem">Kartu 3D gagal dimuat: '+esc(e.message)+'</p>')}
 /* daftar komentar (dan reCAPTCHA) baru dimuat saat bagian komentar hampir terlihat, supaya halaman awal tetap ringan */
