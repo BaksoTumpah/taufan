@@ -76,48 +76,8 @@
     }
   ],
   "certificates": [],
-  "achievements": [
-    {
-      "title": "Prestasi Pidato Bahasa Arab",
-      "desc": "Juara dan tingkat lomba.",
-      "img": "assets/1793457517887-1000219673.jpg",
-      "tech": []
-    }
-  ],
-  "stack": [
-    {
-      "name": "JavaScript",
-      "icon": ""
-    },
-    {
-      "name": "HTML",
-      "icon": ""
-    },
-    {
-      "name": "CSS",
-      "icon": ""
-    },
-    {
-      "name": "Python",
-      "icon": ""
-    },
-    {
-      "name": "Firebase",
-      "icon": ""
-    },
-    {
-      "name": "Cloudflare",
-      "icon": ""
-    },
-    {
-      "name": "Git",
-      "icon": ""
-    },
-    {
-      "name": "GitHub",
-      "icon": ""
-    }
-  ],
+  "achievements": [],
+  "stack": [],
   "gallery": [
     {
       "title": "Lebaransss",
@@ -275,7 +235,7 @@
     "cardConnect1": "CONNECT OUR",
     "cardConnect2": "SOSMED",
     "cardPortfolio": "PORTFOLIO",
-    "docTitle": "{Fadil} | Portofolio",
+    "docTitle": "{Taufan Fadila Hariono} | Portofolio",
     "footer": "© {2010} {fadil}"
   },
   "dev": {
