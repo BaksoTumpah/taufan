@@ -2,11 +2,13 @@
   "hosting": {
     "site": "taufan",
     "public": ".",
+    "predeploy": ["node scripts/seo-build.js"],
     "ignore": [
       "firebase.json",
       "**/.*",
       "README.md",
       ".github/**",
+      "scripts/**",
       "firestore.rules",
       "**/node_modules/**"
     ],
